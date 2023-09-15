@@ -1,0 +1,104 @@
+.AdminLogincontainer{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50%;
+  margin-top: 100px;
+  padding-bottom: 30px;
+
+}
+
+.AdminLoginheader{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  margin-top: 30px;
+
+
+}
+
+.AdminLogintext{
+  color:#3c009d;
+  font-size: 48px;
+  font-weight: 700;
+
+}
+
+.AdminLoginunderline{
+  width: 100px;
+  height: 6px;
+  background: #3c009d;
+  border-radius: 9px;
+}
+
+.AdminLogininputs{
+  margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+}
+
+.AdminLogininput{
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 480px;
+  height: 80px;
+  background: #eaeaea;
+  border-radius: 6px;
+}
+
+.AdminLogininput img{
+  margin: 0px 30px;
+
+}
+
+.AdminLogininput input{
+  height: 10vh;
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #797979;
+  font-size: 19px;
+
+}
+
+.AdminLoginforgot_password{
+  display: flex;
+  margin-top: 27px;
+  color: #797979;
+  font-size: 18px;
+  padding-left: 62px;
+
+
+}
+
+.AdminLoginforgot_password span{
+  color: #4c00b4;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.AdminLoginsubmit_container{
+  display: flex;
+  gap: 30px;
+  margin: 40px auto;
+}
+
+.AdminLoginsubmit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 59px;
+  color: #fff;
+  background: #4c00b4;
+  border-radius: 50px;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+}
