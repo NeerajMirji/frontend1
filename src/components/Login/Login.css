@@ -2,7 +2,9 @@
   width: 30%;
 }
 
-
+.text-center{
+  padding-bottom: 2px;
+}
 @media screen and  (max-width: 1000px){
   .form-container{
       width: 45%;

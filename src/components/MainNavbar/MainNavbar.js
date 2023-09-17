@@ -1,6 +1,6 @@
 
 import {  Link } from "react-router-dom";
-import { useState } from "react";
+import React,{ useState } from "react";
 import './MainNavbar.css'
 
 const MainNavigation = () => {
@@ -17,7 +17,7 @@ const MainNavigation = () => {
     return (
 
       <div id="navbar-title">
-        <div className="navbar-container-fluid">
+        <div className="navbar-container p-2">
           <nav className="navbar navbar-expand-lg navbar-dark pb-3 ">
 
             <Link className="navbar-brand " to="/">LoanSwift</Link>

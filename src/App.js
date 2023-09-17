@@ -16,7 +16,7 @@ import RootLayout from './components/RootLayout';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ContactUs from './components/ContactUs/ContactUs';
 import MainNavbar from './components/MainNavbar/MainNavbar';
-import { Container } from "@material-ui/core";
+import Container from '@mui/material/Container';
 import AdminLogin from './components/AdminLogin/AdminLogin';
 
 
@@ -49,6 +49,7 @@ function App() {
         <Routes>
        <Route path="/" element={<Home/>} />
        <Route path="/login" element={<Login/>} />
+       <Route path="/adduser" element={<AddUser/>} />
        </Routes>
        <ContactUs/>
       

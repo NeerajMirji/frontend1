@@ -38,12 +38,10 @@ const Login = () =>
       <div className='form-container p-5 rounded bg-white'>
       <form>
           <h3 className='text-center'>Sign In</h3>
-          <div className='mb-2'>
-              <label htmlFor='email'>Email</label>
+          <div className='mb-2 p-2'>
               <input type='email' placeholder='Enter Email' className='form-control' />
           </div>
-          <div className='mb-2'>
-              <label htmlFor='password'>Password </label>
+          <div className='mb-2 p-2'>
               <input type='password' placeholder='Enter password' className='form-control' />
           </div>
           <div className='d-grid'>
