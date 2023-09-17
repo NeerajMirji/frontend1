@@ -31,7 +31,7 @@ const LoanApplication = () => {
     
 
       const handleLoanApplication = async (e) => {
-        e.preventDefault();employeeId
+        e.preventDefault(); 
         const applicationDetails = {
             employeeId,
             itemCategory,
@@ -46,40 +46,36 @@ const LoanApplication = () => {
 
     return (
 
-        <div class="center">
-        <h2>Loan Application</h2>
-        <form method="post" onSubmit={handleLoanApplication}>
-          <div class="txt_field">
-            <input type="number" required onChange={onEmployeeIdChange}/>
-            <span></span>
-            <label>Employee Id</label>
+      
+             <div className='loanapplication p-5  d-flex justify-content-center align-items-center  bg-danger bg-gradient'>
+      <div className='form-container  p-5 rounded bg-white'>
+
+        
+        <form >
+        <h3 className='text-center'>Loan Application</h3>
+          <div className='mb-2 p-2'>
+              <input type='number' placeholder='Employee Id' className='form-control' onChange={onEmployeeIdChange}/>
           </div>
-          <div class="txt_field">
-            <input type="text" required onChange={onItemCategoryChange}/>
-            <span></span>
-            <label>Item Category</label>
+          <div className='mb-2 p-2'>
+              <input type='text' placeholder='Item Category' className='form-control' onChange={onItemCategoryChange}/>
           </div>
-          <div class="txt_field">
-            <input type="text" required onChange={onItemDescriptionChange}/>
-            <span></span>
-            <label>Item Description</label>
+          <div className='mb-2 p-2'>
+              <input type='text' placeholder='Item Description' className='form-control' onChange={onItemDescriptionChange}/>
           </div>
-          <div class="txt_field">
-            <input type="number" required onChange={onItemValueChange}/>
-            <span></span>
-            <label>Item Value</label>
+          <div className='mb-2 p-2'>
+              <input type='number' placeholder='Item Value' className='form-control' onChange={onItemValueChange}/>
           </div>
-          <div class="txt_field">
-            <input type="number" required onChange={onLoanDurationChange}/>
-            <span></span>
-            <label>Loan Duration</label>
+          <div className='mb-2 p-2'>
+              <input type='number' placeholder='Loan Duration' className='form-control' onChange={onLoanDurationChange}/>
           </div>
-          <input type="submit" value="Add User"/>
+           <div className='d-grid'>
+              <button className='btn btn-primary bg-danger bg-gradient' onClick={handleLoanApplication}> Submit</button>
+           </div>
           <div class="signup_link">
             
           </div>
         </form>
-      </div>
+      </div></div> 
 
         
         

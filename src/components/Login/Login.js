@@ -36,7 +36,7 @@ const Login = () =>
 
       <div className='login template d-flex justify-content-center align-items-center 100-w vh-100 bg-danger bg-gradient'>
       <div className='form-container p-5 rounded bg-white'>
-      <form>
+      <form >
           <h3 className='text-center'>Sign In</h3>
           <div className='mb-2 p-2'>
               <input type='email' placeholder='Enter Email' className='form-control' />
@@ -45,12 +45,13 @@ const Login = () =>
               <input type='password' placeholder='Enter password' className='form-control' />
           </div>
           <div className='d-grid'>
-              <button className='btn btn-primary bg-danger bg-gradient'>Sign In</button>
+              <button className='btn btn-primary bg-danger bg-gradient'onClick={handleloginData}>Sign In</button>
           </div>
       </form>
       </div>
   </div>
     )
 }
+
 
 export default Login;

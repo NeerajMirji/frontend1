@@ -168,7 +168,7 @@ const AddUser = () => {
               <label htmlFor="others">Others</label>
           </div>
           <div className='d-grid'>
-              <button className='btn btn-primary bg-danger bg-gradient'>Add Employee</button>
+              <button className='btn btn-primary bg-danger bg-gradient' onClick={handleAddEmployee}>Add Employee</button>
           </div>
       </form>
       </div>
