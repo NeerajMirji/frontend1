@@ -18,7 +18,7 @@ const MainNavigation = () => {
 
       <div id="navbar-title">
         <div className="navbar-container-fluid">
-          <nav className="navbar navbar-expand-lg navbar-dark pb-3 ">
+          <nav className="navbar navbar-expand-lg navbar-dark pb-1 ">
 
             <Link className="navbar-brand " to="/">LoanSwift</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

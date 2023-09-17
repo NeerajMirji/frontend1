@@ -34,25 +34,23 @@ const Login = () =>
 
     return(
 
-        <div class="center">
-        <h2>Login</h2>
-        <form method="post" onSubmit={handleloginData}>
-          <div class="txt_field">
-            <input type="text" required onChange={setuserName}/>
-            <span></span>
-            <label>Username</label>
+          <div className='login template d-flex justify-content-center align-items-center 100-w vh-100 bg-danger bg-gradient'>
+          <div className='form-container p-5 rounded bg-white'>
+          <form>
+              <h3 className='text-center'>Sign In</h3>
+              <div className='mb-2'>
+                  <label htmlFor='email'>Email</label>
+                  <input type='email' placeholder='Enter Email' className='form-control' />
+              </div>
+              <div className='mb-2'>
+                  <label htmlFor='password'>Password </label>
+                  <input type='password' placeholder='Enter password' className='form-control' />
+              </div>
+              <div className='d-grid'>
+                  <button className='btn btn-primary bg-danger bg-gradient'>Sign In</button>
+              </div>
+          </form>
           </div>
-          <div class="txt_field">
-            <input type="password" required onChange={setPassword}/>
-            <span></span>
-            <label>Password</label>
-          </div>
-          <div class="pass">Forgot Password?</div>
-          <input type="submit" value="Login"/>
-          <div class="signup_link">
-           
-          </div>
-        </form>
       </div>
     )
 }

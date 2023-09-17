@@ -8,6 +8,8 @@ import EmployeeList from './components/EmployeeList';
 import Login from './components/Login/Login';
 import LoanCard from './components/LoanCard/LoanCard'
 import AddUser from './components/AddUser/AddUser'
+import AdminDashBoard from './components/AdminDashBoard/AdminDashBoard';
+import UserDashBoard from './components/UserDashboard/UserDashboard';
 
 import { BrowserRouter as Router, Route, Switch, Routes } from "react-router-dom";
 import ViewLoanApplication from './components/ViewLoanApplication';
@@ -17,7 +19,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ContactUs from './components/ContactUs/ContactUs';
 import MainNavbar from './components/MainNavbar/MainNavbar';
 import { Container } from "@material-ui/core";
-import AdminLogin from './components/AdminLogin/AdminLogin';
+
 
 
 
@@ -48,7 +50,7 @@ function App() {
         <MainNavbar/>
         <Routes>
        <Route path="/" element={<Home/>} />
-       <Route path="/login" element={<AdminLogin/>} />
+       <Route path="/login" element={<UserDashBoard/>} />
        </Routes>
        <ContactUs/>
       
