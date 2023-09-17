@@ -6,7 +6,7 @@
 
 .navbar-container-fluid
   {
-    padding: 2% 15%;
+    padding: 1% 15%;
   }
 
 .navbar
@@ -17,9 +17,8 @@
 
 .navbar-brand
 {
-  font-size: 1.6rem;
+  font-size: 2.1rem;
   font-family: 'Ubuntu', sans-serif;
-  padding: auto;
 
 }
 
