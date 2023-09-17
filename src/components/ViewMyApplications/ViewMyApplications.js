@@ -1,9 +1,18 @@
 import { useEffect, useState } from "react";
-import { getMyApplications } from "./api";
+import { getMyApplications } from "../api";
 
 const ViewMyApplications = () => {
 
-  const [myApplications, setmyApplications] = useState([]);
+  const [myApplications, setmyApplications] = useState([{
+    loanId : 12345,
+    itemId : 3456,
+    itemCategory:"Furniture",
+    itemDescription:"Chair",
+    itemValue:555,
+    loanDuration:2,
+    loanStatus:"Pending"
+  },
+]);
 
   useEffect(() => {
     return async () => {
@@ -15,8 +24,8 @@ const ViewMyApplications = () => {
 
   return (
     <div className="container">
-      <h3 className="text-primary">My Loan Application </h3>
-      <table className="table table-striped table-bordered">
+      <h3 className="text-primary mt-5">My Loan Applications </h3>
+      <table className="table table-striped table-bordered mt-5">
         <thead>
           <tr>
             <th>Loan Id</th>

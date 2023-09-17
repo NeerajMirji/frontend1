@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css'
+import { Container } from "@material-ui/core";
 
+import { BrowserRouter as Router, Route, Switch, Routes } from "react-router-dom";
 
 import Home from './components/Home/Home.js';
 import UserSignUp from './components/UserSignUp/UserSignup';
@@ -10,15 +12,12 @@ import LoanCard from './components/LoanCard/LoanCard'
 import AddUser from './components/AddUser/AddUser'
 import AdminDashBoard from './components/AdminDashBoard/AdminDashBoard';
 import UserDashBoard from './components/UserDashboard/UserDashboard';
-
-import { BrowserRouter as Router, Route, Switch, Routes } from "react-router-dom";
-import ViewLoanApplication from './components/ViewLoanApplication';
-import ViewMyApplications from './components/ViewMyApplications';
+import ViewLoanApplication from './components/ViewLoanApplication/ViewLoanApplication';
+import ViewMyApplications from './components/ViewMyApplications/ViewMyApplications';
 import RootLayout from './components/RootLayout';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ContactUs from './components/ContactUs/ContactUs';
 import MainNavbar from './components/MainNavbar/MainNavbar';
-import { Container } from "@material-ui/core";
+
 
 
 
@@ -50,7 +49,7 @@ function App() {
         <MainNavbar/>
         <Routes>
        <Route path="/" element={<Home/>} />
-       <Route path="/login" element={<UserDashBoard/>} />
+       <Route path="/login" element={<ViewMyApplications/>} />
        </Routes>
        <ContactUs/>
       
