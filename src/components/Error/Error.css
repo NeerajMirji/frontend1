@@ -1,0 +1,11 @@
+.container-fluid
+{
+    width: 50%;
+    height: auto;
+}
+
+.errorImg
+{
+    height: 70%;
+    width: 70%;
+}

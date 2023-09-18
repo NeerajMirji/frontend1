@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Route, Switch, Routes } from "react-router-dom
 
 import Home from './components/Home/Home.js';
 import UserSignUp from './components/UserSignUp/UserSignup';
-import EmployeeList from './components/EmployeeList';
 import Login from './components/Login/Login';
 import LoanCard from './components/LoanCard/LoanCard'
 import AddUser from './components/AddUser/AddUser'
@@ -17,6 +16,9 @@ import ViewMyApplications from './components/ViewMyApplications/ViewMyApplicatio
 import RootLayout from './components/RootLayout';
 import ContactUs from './components/ContactUs/ContactUs';
 import MainNavbar from './components/MainNavbar/MainNavbar';
+import ViewEmployeeData from './components/ViewEmployeeData/ViewEmployeeData';
+import Error from './components/Error/Error';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 
 
 
@@ -49,7 +51,7 @@ function App() {
         <MainNavbar/>
         <Routes>
        <Route path="/" element={<Home/>} />
-       <Route path="/login" element={<ViewMyApplications/>} />
+       <Route path="/login" element={<Login/>} />
        </Routes>
        <ContactUs/>
       
