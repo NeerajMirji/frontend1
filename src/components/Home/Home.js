@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Cards from '../Cards/Cards'
 import "./Home.css"
 import myImage from './banner.png';
 import img1 from './img1.png'

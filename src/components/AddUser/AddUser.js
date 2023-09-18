@@ -3,17 +3,19 @@ import React from 'react'
 import './AddUser.css'
 import { useState } from "react";
 import { addEmployee } from '../api';
+import { useNavigate } from 'react-router-dom';
 
 const AddUser = () => {
 
-    const [name , setName] = useState("");
+    const [employee_name , setName] = useState("");
     const [email , setEmail] = useState("");
     const [mobile , setMobile] = useState("");
     const [age , setAge] = useState("");
     const [doj , setDoj] = useState("");
     const [salary , setSalary] = useState("");
     const [gender , setGender] = useState("");
-    const [password , setPassword] = useState("");
+    const [employee_password , setPassword] = useState("");
+    const navigate = useNavigate();
 
     const onNameChange = (e) => {
         setName(e.target.value);
@@ -45,7 +47,8 @@ const AddUser = () => {
       const handleAddEmployee = async (e) => {
         e.preventDefault();
         const employee = {
-          name,
+          employee_name,
+          employee_password,
           gender,
           age,
           salary,
@@ -55,6 +58,8 @@ const AddUser = () => {
         };
 
         await addEmployee(employee);
+        navigate("/admindashboard");
+
       };
   
 
@@ -74,7 +79,7 @@ const AddUser = () => {
             <label>Email</label>
           </div>
           <div class="txt_field">
-            <input type="number" required onChange={onMobileChange}/>
+            <input type="text" required onChange={onMobileChange}/>
             <span></span>
             <label>Mobile No</label>
           </div>

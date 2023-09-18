@@ -31,7 +31,7 @@ const LoanApplication = () => {
     
 
       const handleLoanApplication = async (e) => {
-        e.preventDefault();employeeId
+        // e.preventDefault();
         const applicationDetails = {
             employeeId,
             itemCategory,

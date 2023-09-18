@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css'
-import { Container } from "@material-ui/core";
+
 
 import { BrowserRouter as Router, Route, Switch, Routes } from "react-router-dom";
 
@@ -19,6 +19,8 @@ import MainNavbar from './components/MainNavbar/MainNavbar';
 import ViewEmployeeData from './components/ViewEmployeeData/ViewEmployeeData';
 import Error from './components/Error/Error';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
+import LoanApplication from './components/LoanApplication/LoanApplication';
+import EditCardDetails from './components/EditCardDetails/EditCardDetails';
 
 
 
@@ -50,8 +52,18 @@ function App() {
 
         <MainNavbar/>
         <Routes>
-       <Route path="/" element={<Home/>} />
-       <Route path="/login" element={<Login/>} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/adduser" element={<AddUser/>} />
+          <Route path="/usersignup" element={<UserSignUp/>} />
+          <Route path="/ViewEmployeeData" element={<ViewEmployeeData/>} />
+          <Route path="/viewloanapplication" element={<ViewLoanApplication/>} />
+          <Route path="/viewmyapplications" element={<ViewMyApplications/>} />
+          <Route path="/loanapplications" element={<LoanApplication/>} />
+          <Route path="/userdashboard" element={<UserDashBoard/>} />
+          <Route path="/admindashboard" element={<AdminDashBoard/>} />
+          <Route path="/error" element={<Error/>} />
+          <Route path="/editcarddetails" element={<EditCardDetails/>}/>
        </Routes>
        <ContactUs/>
       

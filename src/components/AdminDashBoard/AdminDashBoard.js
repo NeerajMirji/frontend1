@@ -3,6 +3,7 @@ import './AdminDashBoard.css';
 import employeeData from './employeeData.jpg'
 import itemdata from './itemdata.jpg'
 import loancard from './loancard.jpg'
+import { Link } from "react-router-dom";
 
 const AdminDashBoard = () =>
 {
@@ -16,8 +17,8 @@ const AdminDashBoard = () =>
                         <img src={employeeData} className="card-img-top" alt="..."/>
                         <div className="card-body">
                             <h5 className="card-title">Employee Data</h5>
-                            <button type="button" className="btn btn-outline-success mr-3 mt-2">Add</button>
-                            <button type="button" className="btn btn-outline-danger ml-3 mt-2">View</button>
+                            <Link to="/adduser" type="button" className="btn btn-outline-success mr-3 mt-2">Add</Link>
+                            <Link to="/viewemployeedata" type="button" className="btn btn-outline-danger ml-3 mt-2">View</Link>
                         </div>
                     </div>
                 </div>
@@ -25,9 +26,9 @@ const AdminDashBoard = () =>
                     <div className="card " style={{width : 18 + 'rem'}}>
                             <img src={itemdata} className="card-img-top" alt="..."/>
                             <div className="card-body">
-                                <h5 className="card-title">Item Data</h5>
-                                <button type="button" className="btn btn-outline-success mr-3 mt-2">Add</button>
-                                <button type="button" className="btn btn-outline-danger ml-3 mt-2">View</button>
+                                <h5 className="card-title">Loan Applications</h5>
+                                <Link type="button" className="btn btn-outline-success mr-3 mt-2">Add</Link>
+                                <Link type="button" className="btn btn-outline-danger ml-3 mt-2">View</Link>
                             </div>
                         </div>
                     </div>
@@ -35,9 +36,9 @@ const AdminDashBoard = () =>
                     <div className="card" style={{width : 18 + 'rem'}}>
                             <img src={loancard} className="card-img-top pt-5 pb-5" alt="..."/>
                             <div className="card-body">
-                                <h5 className="card-title">Loan Card Data</h5>
-                                <button type="button" className="btn btn-outline-success mr-3 mt-2">Add</button>
-                                <button type="button" className="btn btn-outline-danger ml-3 mt-2">View</button>
+                                <h5 className="card-title">Issue Card Details</h5>
+                                <Link type="button" className="btn btn-outline-success mr-3 mt-2">Add</Link>
+                                <Link type="button" className="btn btn-outline-danger ml-3 mt-2">View</Link>
                             </div>
                     </div>
                 </div>
