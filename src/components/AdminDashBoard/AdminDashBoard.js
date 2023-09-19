@@ -17,7 +17,7 @@ const AdminDashBoard = () =>
                         <img src={employeeData} className="card-img-top" alt="..."/>
                         <div className="card-body">
                             <h5 className="card-title">Employee Data</h5>
-                            <Link to="/adduser" type="button" className="btn btn-outline-success mr-3 mt-2">Add</Link>
+                            <Link to="/addemployee" type="button" className="btn btn-outline-success mr-3 mt-2">Add</Link>
                             <Link to="/viewemployeedata" type="button" className="btn btn-outline-danger ml-3 mt-2">View</Link>
                         </div>
                     </div>
@@ -27,8 +27,8 @@ const AdminDashBoard = () =>
                             <img src={itemdata} className="card-img-top" alt="..."/>
                             <div className="card-body">
                                 <h5 className="card-title">Loan Applications</h5>
-                                <Link type="button" className="btn btn-outline-success mr-3 mt-2">Add</Link>
-                                <Link type="button" className="btn btn-outline-danger ml-3 mt-2">View</Link>
+                                <Link to="/viewloanapplication" type="button" className="btn btn-outline-success mr-3 mt-2">Add</Link>
+                                <Link to="/viewloanapplication" type="button" className="btn btn-outline-danger ml-3 mt-2">View</Link>
                             </div>
                         </div>
                     </div>

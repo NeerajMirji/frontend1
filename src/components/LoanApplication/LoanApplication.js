@@ -3,83 +3,92 @@ import React from 'react'
 import './LoanApplication.css'
 import { useState } from "react";
 import { loanApplicationDetails } from '../api';
+import { useNavigate } from 'react-router-dom';
+
+import login from './login.jpg';
 
 const LoanApplication = () => {
 
-    const [employeeId , setemployeeId] = useState(null);
-    const [itemCategory , setitemCategory] = useState("");
-    const [itemDescription , setitemDescription] = useState("");
-    const [itemValue , setitemValue] = useState(null);
-    const [loanDuration , setloanDuration] = useState(null);
+    const [employee_id , setEmployeeId] = useState("");
+    const [loan_id , setLoanId] = useState("");
+    const [item_category , setItemCategory] = useState("");
+    const [item_description , setItemDescription] = useState("");
+    const [item_value , setItemValue] = useState("");
+    const [item_duration , setItemDuration] = useState("");
+    const [loan_type , setLoanType] = useState("");
+    const navigate = useNavigate();
+
 
 
     const onEmployeeIdChange = (e) => {
-        setemployeeId(e.target.value);
+        setEmployeeId(e.target.value);
       };
+
+      const onLoanIdChange = (e) =>
+      {
+        setLoanId(e.target.value);
+      }
+
       const onItemCategoryChange = (e) => {
-        setitemCategory(e.target.value);
+        setItemCategory(e.target.value);
       };
       const onItemDescriptionChange = (e) => {
-        setitemDescription(e.target.value);
+        setItemDescription(e.target.value);
       };
       const onItemValueChange = (e) => {
-        setitemValue(e.target.value);
+        setItemValue(e.target.value);
       };
       const onLoanDurationChange = (e) => {
-        setloanDuration(e.target.value);
+        setItemDuration(e.target.value);
+      };
+      const onLoanTypeChange = (e) => {
+        setLoanType(e.target.value);
       };
     
 
       const handleLoanApplication = async (e) => {
         // e.preventDefault();
         const applicationDetails = {
-            employeeId,
-            itemCategory,
-            itemDescription,
-            itemValue,
-            loanDuration
+            employee_id,
+            loan_id,
+            loan_type,
+            item_category,
+            item_description,
+            item_value,
+            item_duration
         };
 
         await loanApplicationDetails(applicationDetails);
+        navigate("/userdashboard");
       };
   
 
     return (
 
-        <div class="center">
-        <h2>Loan Application</h2>
-        <form method="post" onSubmit={handleLoanApplication}>
-          <div class="txt_field">
-            <input type="number" required onChange={onEmployeeIdChange}/>
-            <span></span>
-            <label>Employee Id</label>
+      <div class="container text-center">
+      <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+              <img  className="forgotpasswordImg mt-3 mb-3" src={login} alt="forgot password"/>
           </div>
-          <div class="txt_field">
-            <input type="text" required onChange={onItemCategoryChange}/>
-            <span></span>
-            <label>Item Category</label>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+              <div className='mt-5 pt-5'>
+                <form  onSubmit={handleLoanApplication}>
+                  <h3 className='text-dark  mt-4 mb-5  pb-2'>Apply For Loan</h3>
+                  {/* <input onchange={onEmployeeIdChange} type="number" placeholder="Employee Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input> */}
+                  <input onChange={onEmployeeIdChange} type="number" placeholder="Employee Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                  <input onChange={onLoanIdChange} type="number" placeholder="Loan Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                  <input onChange={onItemCategoryChange} type="text" placeholder="Item Category"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                  <input onChange={onItemDescriptionChange} type="text" placeholder="Item Description"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                  <input onChange={onItemValueChange} type="number" placeholder="Item Value"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                  <input onChange={onLoanDurationChange} type="number" placeholder="Item Duration"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                  <input onChange={onLoanTypeChange} type="text" placeholder="Loan Type"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                  <input type="submit" value ="Apply" class=" mt-3 pt-2 pb-2 btn btn-success forgotpassword-button"></input>
+                  </form>
+              </div>
           </div>
-          <div class="txt_field">
-            <input type="text" required onChange={onItemDescriptionChange}/>
-            <span></span>
-            <label>Item Description</label>
-          </div>
-          <div class="txt_field">
-            <input type="number" required onChange={onItemValueChange}/>
-            <span></span>
-            <label>Item Value</label>
-          </div>
-          <div class="txt_field">
-            <input type="number" required onChange={onLoanDurationChange}/>
-            <span></span>
-            <label>Loan Duration</label>
-          </div>
-          <input type="submit" value="Add User"/>
-          <div class="signup_link">
-            
-          </div>
-        </form>
       </div>
+    
+</div>
 
         
         

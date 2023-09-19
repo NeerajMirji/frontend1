@@ -3,15 +3,16 @@ import { getMyApplications } from "../api";
 
 const ViewMyApplications = () => {
 
-  const [myApplications, setmyApplications] = useState([{
-    loanId : 12345,
-    itemId : 3456,
-    itemCategory:"Furniture",
-    itemDescription:"Chair",
-    itemValue:555,
-    loanDuration:2,
-    loanStatus:"Pending"
-  },
+  const [myApplications, setmyApplications] = useState([
+  //   {
+  //   loanId : 12345,
+  //   itemId : 3456,
+  //   itemCategory:"Furniture",
+  //   itemDescription:"Chair",
+  //   itemValue:555,
+  //   loanDuration:2,
+  //   loanStatus:"Pending"
+  // }
 ]);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ const ViewMyApplications = () => {
         <thead>
           <tr>
             <th>Loan Id</th>
-            <th>Item Id</th>
+            <th>Application Date</th>
             <th>Item Category</th>
             <th>Item Description</th>
             <th>Item Value</th>
@@ -39,14 +40,14 @@ const ViewMyApplications = () => {
         </thead>
         <tbody>
           {myApplications.map((myApplication) => (
-            <tr key={myApplication.loanId}>
-              <td>{myApplication.loanId}</td>
-              <td>{myApplication.itemId}</td>
-              <td>{myApplication.itemCategory}</td>
-              <td>{myApplication.itemDescription}</td>
-              <td>{myApplication.itemValue}</td>
-              <td>{myApplication.loanDuration}</td>
-              <td>{myApplication.loanStatus}</td>
+            <tr key={myApplication.loan_id}>
+              <td>{myApplication.loan_id}</td>
+              <td>{myApplication.apply_date}</td>
+              <td>{myApplication.item_category}</td>
+              <td>{myApplication.item_description}</td>
+              <td>{myApplication.item_value}</td>
+              <td>{myApplication.item_duration}</td>
+              <td>{myApplication.item_status}</td>
             </tr>
           ))}
         </tbody>

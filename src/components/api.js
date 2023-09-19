@@ -33,7 +33,7 @@ const loanApplicationDetails = async (LoanApplication) =>{
 
 const getEmployeeList = async () => {
   const response = await axios.get("http://localhost:8080/api/employees/getAll");
-  console.log("This is from get All", response.data);
+  // console.log("This is from get All", response.data);
   return response.data;
 };
 
@@ -45,7 +45,7 @@ const getLoanApplications = async () => {
 };
 
 const getMyApplications = async () => {
-  const response = await axios.get("http://localhost:8080/api/employees/getAll");
+  const response = await axios.get("http://localhost:8080/api/loanitem/getAll");
   console.log("This is from get All", response.data);
   return response.data;
 };
@@ -56,10 +56,16 @@ const deleteEmployeeData = async (id) => {
   return response.data;
 };
 
-const updateEmployeeData = async (id) => {
-  const response = await axios.put(`http://localhost:8080/api/employees/update/${id}`);
-  console.log("This is from get All", response.data);
+const updateEmployeeData = async (employee) => {
+  const response = await axios.put(`http://localhost:8080/api/employees/update/${employee.employee_id}`,employee);
+  // console.log("This is from get All", response.data);
   return response.data;
 };
 
-export { updateEmployeeData, deleteEmployeeData, addEmployee, getEmployeeList, loginData, loanCardDetails, loanApplicationDetails, getLoanApplications,  getMyApplications};
+const updateLoanApplicationData = async (Loanapplication) => {
+  const response = await axios.put(`http://localhost:8080/api/loanitem/update/${Loanapplication.loan_id}`,Loanapplication);
+  // console.log("This is from get All", response.data);
+  return response.data;
+};
+
+export {updateLoanApplicationData, updateEmployeeData, deleteEmployeeData, addEmployee, getEmployeeList, loginData, loanCardDetails, loanApplicationDetails, getLoanApplications,  getMyApplications};

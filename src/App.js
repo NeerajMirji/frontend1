@@ -21,6 +21,8 @@ import Error from './components/Error/Error';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import LoanApplication from './components/LoanApplication/LoanApplication';
 import EditCardDetails from './components/EditCardDetails/EditCardDetails';
+import AddEmployee from './components/AddEmployee/AddEmployee';
+import EditEmployee from './components/EditEmployee/EditEmployee';
 
 
 
@@ -64,6 +66,8 @@ function App() {
           <Route path="/admindashboard" element={<AdminDashBoard/>} />
           <Route path="/error" element={<Error/>} />
           <Route path="/editcarddetails" element={<EditCardDetails/>}/>
+          <Route path="/addemployee" element={<AddEmployee/>}/>
+          <Route path="/editemployee" element={<EditEmployee/>}/>
        </Routes>
        <ContactUs/>
       
