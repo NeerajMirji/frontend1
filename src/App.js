@@ -48,8 +48,8 @@ import EditEmployee from './components/EditEmployee/EditEmployee';
 
 function App() {
  
-  const [isLoggedIn,setIsLoggedIn] = useState(false)
-  
+  const [isLoggedIn,setIsLoggedIn] = useState(localStorage.getItem("token") != null)
+  const role = localStorage.getItem("Role");
   return (
     <>
     <Router>
@@ -59,18 +59,18 @@ function App() {
    
         <Route path="/" element={<Home/>} />
           <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
-          <Route path="/adduser" element={isLoggedIn ? <AddUser/> : <Home/>} />
+          <Route path="/adduser" element={role=="Admin" && isLoggedIn ? <AddUser/> : <Home/>} />
           <Route path="/usersignup" element={isLoggedIn ? <UserSignUp/> : <Home/>} />
-          <Route path="/ViewEmployeeData" element={isLoggedIn ? <ViewEmployeeData/> : <Home/>} />
-          <Route path="/viewloanapplication" element={isLoggedIn ? <ViewLoanApplication/>: <Home/>} />
-          <Route path="/viewmyapplications" element={isLoggedIn ? <ViewMyApplications/>: <Home/>} />
-          <Route path="/loanapplications" element={isLoggedIn ? <LoanApplication/>: <Home/>} />
-          <Route path="/userdashboard" element={isLoggedIn ? <UserDashBoard/>: <Home/>} />
-          <Route path="/admindashboard" element={isLoggedIn ? <AdminDashBoard/>: <Home/>} />
+          <Route path="/ViewEmployeeData" element={role=="Admin" && isLoggedIn ? <ViewEmployeeData/> : <Home/>} />
+          <Route path="/viewloanapplication" element={role=="Admin" && isLoggedIn ? <ViewLoanApplication/>: <Home/>} />
+          <Route path="/viewmyapplications" element={role== "User" && isLoggedIn ? <ViewMyApplications/>: <Home/>} />
+          <Route path="/loanapplications" element={role=="User" && isLoggedIn ? <LoanApplication/>: <Home/>} />
+          <Route path="/userdashboard" element={role=="User" && isLoggedIn ? <UserDashBoard/>: <Home/>} />
+          <Route path="/admindashboard" element={role=="Admin" && isLoggedIn ? <AdminDashBoard/>: <Home/>} />
           <Route path="/error" element={isLoggedIn ? <Error/>: <Home/>} />
-          <Route path="/editcarddetails" element={isLoggedIn ? <EditCardDetails/>: <Home/>}/>
-          <Route path="/addemployee" element={isLoggedIn ? <AddEmployee/>: <Home/>}/>
-          <Route path="/editemployee" element={isLoggedIn ? <EditEmployee/>: <Home/>}/> 
+          <Route path="/editcarddetails" element={role=="Admin" && isLoggedIn ? <EditCardDetails/>: <Home/>}/>
+          <Route path="/addemployee" element={role=="Admin" && isLoggedIn ? <AddEmployee/>: <Home/>}/>
+          <Route path="/editemployee" element={role=="Admin" &&isLoggedIn ? <EditEmployee/>: <Home/>}/> 
     
           
        </Routes>
