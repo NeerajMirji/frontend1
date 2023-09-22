@@ -6,10 +6,11 @@ import { loanApplicationDetails } from '../api';
 import { useNavigate } from 'react-router-dom';
 
 import login from './login.jpg';
+import { scryRenderedComponentsWithType } from 'react-dom/test-utils';
 
 const LoanApplication = () => {
 
-    const [employee_id , setEmployeeId] = useState("");
+    const [employee_id , setEmployeeId] = useState(0);
     const [loan_id , setLoanId] = useState("");
     const [item_category , setItemCategory] = useState("");
     const [item_description , setItemDescription] = useState("");
@@ -22,6 +23,7 @@ const LoanApplication = () => {
 
     const onEmployeeIdChange = (e) => {
         setEmployeeId(e.target.value);
+        console.log(employee_id)
       };
 
       const onLoanIdChange = (e) =>
@@ -47,16 +49,16 @@ const LoanApplication = () => {
     
 
       const handleLoanApplication = async (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         const applicationDetails = {
-            employee_id,
-            loan_id,
-            loan_type,
-            item_category,
-            item_description,
-            item_value,
-            item_duration
+           employeeId :  employee_id,
+           loanType :  loan_type,
+            itemCategory : item_category,
+            itemDescription : item_description,
+            itemValue : item_value,
+            itemDuration : item_duration
         };
+        console.log(applicationDetails)
 
         await loanApplicationDetails(applicationDetails);
         navigate("/userdashboard");

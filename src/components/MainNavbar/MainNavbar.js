@@ -3,15 +3,17 @@ import {  Link } from "react-router-dom";
 import { useState } from "react";
 import './MainNavbar.css'
 
-const MainNavigation = () => {
+const MainNavigation = ({isLoggedIn,setIsLoggedIn}) => {
 
-     const [loginFlag , setloginFlag] = useState(false);
+ 
      
 
-     
-    const onloginFlagChange = (e) => {
-      setloginFlag(true);
-    };
+     const handleLogout = () => {
+        localStorage.clear();
+        setIsLoggedIn(false);
+
+     }
+
 
      
     return (
@@ -36,9 +38,21 @@ const MainNavigation = () => {
                 <li className="nav-item pl-lg-5">
                   <Link className="nav-link" to="/team">Team</Link>
                 </li>
-                <li className="nav-item pl-lg-5">
-                  <Link className="nav-link" to="/login">Login</Link>
+{
+  !isLoggedIn ? (
+    <>
+    <li className="nav-item pl-lg-5">
+      <Link className="nav-link" to="/login">Login</Link>
+    </li>
+    </>
+  ) :(<>
+  
+         <li className="nav-item pl-lg-5">
+                  <Link className="nav-link" to="/" onClick={handleLogout}>Logout</Link>
                 </li>
+  </>)
+}
+
               </ul>
             </div>
           </nav>

@@ -4,6 +4,8 @@ import { getLoanApplications, updateLoanApplicationData } from "../api";
 const ViewLoanApplication = () => {
 
   const [Loanapplications, setLoanapplications,] = useState([]);
+
+  
   
 
 
@@ -12,7 +14,7 @@ const ViewLoanApplication = () => {
     
 
     // navigate('/editemployee',{state:{employee}});
-    Loanapplication.item_status = "Approved";
+    Loanapplication.itemStatus = "Approved";
     await updateLoanApplicationData(Loanapplication);
    
     console.log(Loanapplication);
@@ -22,7 +24,7 @@ const ViewLoanApplication = () => {
     // await updateEmployeeData(id);
 
     // navigate('/editemployee',{state:{employee}});
-    Loanapplication.item_status = "Rejected";
+    Loanapplication.itemStatus = "Rejected";
     await updateLoanApplicationData(Loanapplication);
     
     console.log(Loanapplication);
@@ -63,22 +65,22 @@ const ViewLoanApplication = () => {
         <tbody>
           {Loanapplications.map((Loanapplication) => (
             <tr key={Loanapplication.loanId}>
-              <td className="pt-3">{Loanapplication.loan_id}</td>
-              <td className="pt-3">{Loanapplication.employee_id}</td>
-              <td className="pt-3">{Loanapplication.item_category}</td>
-              <td className="pt-3">{Loanapplication.item_description}</td>
-              <td className="pt-3">{Loanapplication.item_value}</td>
-              <td className="pt-3">{Loanapplication.item_duration}</td>
-              <td className="pt-3">{Loanapplication.loan_type}</td>
+              <td className="pt-3">{Loanapplication.loanId}</td>
+              <td className="pt-3">{Loanapplication.employeeId}</td>
+              <td className="pt-3">{Loanapplication.itemCategory}</td>
+              <td className="pt-3">{Loanapplication.itemDescription}</td>
+              <td className="pt-3">{Loanapplication.itemValue}</td>
+              <td className="pt-3">{Loanapplication.itemDuration}</td>
+              <td className="pt-3">{Loanapplication.loanType}</td>
               <td>
                 {
-                  Loanapplication.item_status === "Pending" ? (
+                  Loanapplication.itemStatus === "Pending" ? (
                     <>
                       <button onClick={() => handleApprove(Loanapplication)} type="button" className="btn btn-success mr-2">Approve</button>
                       <button onClick={() => handleReject(Loanapplication)} type="button" className="btn btn-danger ml-2">Reject</button></>
                   ) : (
                       <>
-                      <span>  {Loanapplication.item_status}</span>
+                      <span>  {Loanapplication.itemStatus}</span>
                    
                       </>
                   )

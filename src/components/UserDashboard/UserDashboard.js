@@ -1,5 +1,6 @@
 import React from "react";
 import './UserDashboard.css';
+
 import applyforloan from './applyforloan.jpg'
 import itemspurchased from './itemspurchased.jpg'
 import showloans from './showloans.jpg';
@@ -8,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 const UserDashboard = () =>
 {
 
+    
+    const username = localStorage.getItem("username");
     const navigate = useNavigate();
     const handleApplyForLoan = () => {
         navigate("/loanapplications")

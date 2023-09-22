@@ -4,14 +4,14 @@ import './Login.css'
 import login from './login.jpg'
 
 import { useState } from "react";
-import { loginData } from '../api';
+import { loginData, getLoginDataByUserName } from '../api';
 
-const Login = () =>
+const Login = ({isLoggedIn,setIsLoggedIn}) =>
 {
 
-    const [employeeid , setEmployeeid] = useState("");
+    const [employeeid , setEmployeeid] = useState(0);
     const [password , setPassword] = useState("");
-    const [isLoggedIn , setIsLoggedIn ] = useState(false);
+   
 
     const navigate = useNavigate();
 
@@ -29,27 +29,49 @@ const Login = () =>
 
 
       const handleloginData= async (e) => {
-        e.preventDefault();
+        e.preventDefault()
         const loginCred = {
-            employeeid,
+            username : employeeid,
             password
         };
 
-        localStorage.setItem("loginCred",JSON.parse(loginCred));
-
+        // localStorage.setItem("loginCred",JSON.parse(loginCred));
+        console.log(loginCred)
+        
         const response = await loginData(loginCred);
-
-         if(response.data.role == "user") {
+        // console.log("login clicked");
+        // console.log(response);
+        if(response.data != "Authentication Failed"){
           setIsLoggedIn(true);
-          navigate("/userdashboard");
-         }
-         else if(response.data.role == "admin")
-         {setIsLoggedIn(true);
-           navigate("/admindashboard");
-          }
-         else navigate("/error");
+          const loginResponse = await getLoginDataByUserName(loginCred.username);
+          // console.log("this is from loginResponse" , loginResponse.roles);
+          localStorage.setItem("userName",loginCred.username);
+          localStorage.setItem("Role",loginResponse.roles);
+          localStorage.setItem("token",response.data);
 
-        navigate("/userdashboard");
+
+          
+          if(loginResponse.roles == "User") navigate("/userdashboard");
+          else navigate("/admindashboard");
+          
+        }else{
+          setIsLoggedIn(false);
+          alert("Invalid Credentials !");
+          navigate("/login")
+        }
+        
+
+        //  if(response.data.role == "user") {
+        //   setIsLoggedIn(true);
+        //   navigate("/userdashboard");
+        //  }
+        //  else if(response.data.role == "admin")
+        //  {setIsLoggedIn(true);
+        //    navigate("/admindashboard");
+        //   }
+        //  else navigate("/error");
+
+       
         
       };
 
@@ -58,7 +80,7 @@ const Login = () =>
     return(
 
       <div class="container text-center">
-        <form method="post" onSubmit={handleloginData}>
+        <form method='post' onSubmit={handleloginData}>
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <img  className="forgotpasswordImg mt-3 mb-3" src={login} alt="forgot password"/>
@@ -66,9 +88,9 @@ const Login = () =>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div className='mt-5 pt-5'>
                         <h3 className='text-dark  mt-4 mb-5  pb-2'>Login</h3>
-                        <input onchange={onemployeeidChange} type="number" placeholder="Employee Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                        <input onchange={onpasswordChange} type="password" placeholder="Password"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                        <button type="button" class=" mt-3 pt-2 pb-2 btn btn-success forgotpassword-button">Login</button>
+                        <input onChange={onemployeeidChange} type="number" placeholder="Employee Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                        <input onChange={onpasswordChange} type="password" placeholder="Password"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                        <button type="submit" class=" mt-3 pt-2 pb-2 btn btn-success forgotpassword-button">Login</button>
                         <button type="button" class=" mt-3 pt-2 pb-2 btn btn-outline-primary forgotpassword-button">Sign Up</button>
                     </div>
                 </div>

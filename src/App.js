@@ -1,7 +1,6 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './App.css'
-
-
+import { useNavigate } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Switch, Routes } from "react-router-dom";
 
 import Home from './components/Home/Home.js';
@@ -48,26 +47,32 @@ import EditEmployee from './components/EditEmployee/EditEmployee';
 // ]);
 
 function App() {
+ 
+  const [isLoggedIn,setIsLoggedIn] = useState(false)
+  
   return (
     <>
     <Router>
 
-        <MainNavbar/>
+        <MainNavbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/adduser" element={<AddUser/>} />
-          <Route path="/usersignup" element={<UserSignUp/>} />
-          <Route path="/ViewEmployeeData" element={<ViewEmployeeData/>} />
-          <Route path="/viewloanapplication" element={<ViewLoanApplication/>} />
-          <Route path="/viewmyapplications" element={<ViewMyApplications/>} />
-          <Route path="/loanapplications" element={<LoanApplication/>} />
-          <Route path="/userdashboard" element={<UserDashBoard/>} />
-          <Route path="/admindashboard" element={<AdminDashBoard/>} />
-          <Route path="/error" element={<Error/>} />
-          <Route path="/editcarddetails" element={<EditCardDetails/>}/>
-          <Route path="/addemployee" element={<AddEmployee/>}/>
-          <Route path="/editemployee" element={<EditEmployee/>}/>
+   
+        <Route path="/" element={<Home/>} />
+          <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
+          <Route path="/adduser" element={isLoggedIn ? <AddUser/> : <Home/>} />
+          <Route path="/usersignup" element={isLoggedIn ? <UserSignUp/> : <Home/>} />
+          <Route path="/ViewEmployeeData" element={isLoggedIn ? <ViewEmployeeData/> : <Home/>} />
+          <Route path="/viewloanapplication" element={isLoggedIn ? <ViewLoanApplication/>: <Home/>} />
+          <Route path="/viewmyapplications" element={isLoggedIn ? <ViewMyApplications/>: <Home/>} />
+          <Route path="/loanapplications" element={isLoggedIn ? <LoanApplication/>: <Home/>} />
+          <Route path="/userdashboard" element={isLoggedIn ? <UserDashBoard/>: <Home/>} />
+          <Route path="/admindashboard" element={isLoggedIn ? <AdminDashBoard/>: <Home/>} />
+          <Route path="/error" element={isLoggedIn ? <Error/>: <Home/>} />
+          <Route path="/editcarddetails" element={isLoggedIn ? <EditCardDetails/>: <Home/>}/>
+          <Route path="/addemployee" element={isLoggedIn ? <AddEmployee/>: <Home/>}/>
+          <Route path="/editemployee" element={isLoggedIn ? <EditEmployee/>: <Home/>}/> 
+    
+          
        </Routes>
        <ContactUs/>
       
