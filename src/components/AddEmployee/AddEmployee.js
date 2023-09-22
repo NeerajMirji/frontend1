@@ -10,14 +10,14 @@ const AddEmployee = () =>
 {
 
     // const[employee_id, setEmployeeid] = useState("");
-    const [employee_name , setName] = useState("");
+    const [employeeName , setName] = useState("");
     const [email , setEmail] = useState("");
     const [mobile , setMobile] = useState("");
     const [age , setAge] = useState("");
     const [doj , setDoj] = useState("");
     const [salary , setSalary] = useState("");
     const [gender , setGender] = useState("");
-    const [employee_password , setPassword] = useState("");
+    const [employeePassword , setPassword] = useState("");
     const navigate = useNavigate();
 
     // const onEmployeeIdChange = (e) =>
@@ -55,8 +55,8 @@ const AddEmployee = () =>
       const handleAddEmployee = async (e) => {
         e.preventDefault();
         const employee = {
-          employee_name,
-          employee_password,
+          employeeName,
+          employeePassword,
           gender,
           age,
           salary,

@@ -59,13 +59,13 @@ const deleteEmployeeData = async (id) => {
 };
 
 const updateEmployeeData = async (employee) => {
-  const response = await axios.put(`http://localhost:8080/api/employees/update/${employee.employee_id}`,employee);
+  const response = await axios.put(`http://localhost:8080/api/employees/update/${employee.employeeId}`,employee);
   // console.log("This is from get All", response.data);
   return response.data;
 };
 
 const updateLoanApplicationData = async (Loanapplication) => {
-  const response = await axios.put(`http://localhost:8080/api/loanitem/update/${Loanapplication.loan_id}`,Loanapplication);
+  const response = await axios.put(`http://localhost:8080/api/loanitem/update/${Loanapplication.loanId}`,Loanapplication);
   // console.log("This is from get All", response.data);
   return response.data;
 };

@@ -5,60 +5,12 @@ import { useNavigate } from "react-router-dom";
 
 const ViewEmployeeData = () => {
 
-  // const [employee_name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [mobile, setMobile] = useState("");
-  // const [age, setAge] = useState("");
-  // const [doj, setDoj] = useState("");
-  // const [salary, setSalary] = useState("");
-  // const [gender, setGender] = useState("");
-  // const [employee_password, setPassword] = useState("");
+
 
   const navigate = useNavigate();
 
   const [employees,setEmployees] = useState([]);
 
-  // const onNameChange = (e) => {
-  //   setName(e.target.value);
-  // };
-  // const onGenderChange = (e) => {
-  //   setGender(e.target.value);
-  // };
-  // const onAgeChange = (e) => {
-  //   setAge(e.target.value);
-  // };
-  // const onSalaryChange = (e) => {
-  //   setSalary(e.target.value);
-  // };
-  // const onEmailChange = (e) => {
-  //   setEmail(e.target.value);
-  // };
-  // const onDojChange = (e) => {
-  //   setDoj(e.target.value);
-  // };
-
-  // const onMobileChange = (e) => {
-  //   setMobile(e.target.value);
-  // };
-
-  // const onPasswordChange = (e) => {
-  //   setPassword(e.target.value);
-  // };
-
-  // const handleAddEmployee = async (e) => {
-  //   e.preventDefault();
-  //   const employee = {
-  //     employee_name,
-  //     employee_password,
-  //     gender,
-  //     age,
-  //     salary,
-  //     email,
-  //     doj,
-  //     mobile,
-  //   }
-
-  // }
 
 
     const handleDelete = async (id) => {
@@ -106,9 +58,9 @@ const ViewEmployeeData = () => {
                 </thead>
                 <tbody>
                   {employees?.map((employee) => (
-                    <tr key={employee.employee_id}>
-                      <td className="pt-3" >{employee.employee_id}</td>
-                      <td className="pt-3" >{employee.employee_name}</td>
+                    <tr key={employee.employeeId}>
+                      <td className="pt-3" >{employee.employeeId}</td>
+                      <td className="pt-3" >{employee.employeeName}</td>
                       <td className="pt-3" >{employee.gender}</td>
                       <td className="pt-3" >{employee.age}</td>
                       <td className="pt-3" >{employee.salary}</td>
