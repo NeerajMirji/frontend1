@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Home.css"
 import myImage from './banner.png';
@@ -19,6 +19,7 @@ import icon2 from './icon2.png'
 import icon3 from './icon3.png'
 import icon4 from './icon4.png'
 
+
 const Home = () => {
     const navigate = useNavigate();
     const gotoAdminLogin = () => {
@@ -35,7 +36,7 @@ const Home = () => {
               <div className="col-lg-6">
                 <h1 className="pb-4">Turning dreams into reality, one loan at a click.</h1>
                 <button type="button" className="btn btn-dark btn-lg"><i className="fa-solid fa-user-plus"></i> Sign Up</button>
-                <button type="button" className="btn btn-outline-light btn-lg"><i class="fa-solid fa-user-shield"></i> Login</button>
+                <Link type="button" to='/login' className="btn btn-outline-light btn-lg"><i class="fa-solid fa-user-shield"></i> Login</Link>
               </div>
               <div className="col-lg-6 pt-2">
                 <img className="selfie" src={myImage} alt="loan App"/>
@@ -70,7 +71,7 @@ const Home = () => {
           </div>
 
 
-          <div >
+          
               <div id="testimonials-carousel" className="carousel slide" data-ride="carousel">
                 <ol className="carousel-indicators">
                   <li data-target="#testimonials-carousel" data-slide-to="0" className="active"/>
@@ -97,83 +98,70 @@ const Home = () => {
                 </a>
               </div>
 
-          </div>
+          
+
+
+
+
+
 
 
 
 
           <div id="press">
-            <img class="press-logo" src={mashable} alt="tc-logo"/>
-            <img class="press-logo" src={tnw} alt="tnw-logo"/>
-            <img class="press-logo" src={bizinsider} alt="biz-insider-logo"/>
-            <img class="press-logo" src={TechCrunch}  alt="mashable-logo"/>
+            <img className="press-logo" src={mashable} alt="tc-logo"/>
+            <img className="press-logo" src={tnw} alt="tnw-logo"/>
+            <img className="press-logo" src={bizinsider} alt="biz-insider-logo"/>
+            <img className="press-logo" src={TechCrunch}  alt="mashable-logo"/>
 
           </div>
 
-    <div >
-    <div class="team_section layout_padding">
-      <div class="container">
-        <h1 class="what_taital">Our Team and experts</h1>
-        <p class="what_text_1">It is a long established fact that a reader will be distracted by the readable content of a </p>
-        <div class="team_section_2 layout_padding">
-          <div class="row">
-            <div class="col-sm-3">
-              <img src={img1} class="image_7"/>
-              <p class="readable_text">Readable</p>
-              <p class="readable_text_1">Follow Us</p>
-              <div class="social_icon">
-                <ul>
-                  <li><a href="#"><img src={fb}/></a></li>
-                  <li><a href="#"><img src={twitter}/></a></li>
-                  <li><a href="#"><img src={linkedin}/></a></li>
-                </ul>
+
+          <div className="team-container-fluid text-center">
+           <h3 className='teamHeading '> Our Team</h3>
+           <p className="mt-3 mb-4 teamTag"> A strong team, characterized by effective collaboration, open communication, and diverse skills, can achieve remarkable results and foster innovation.</p>
+            <div className="row">
+              <div className="teamCard col-lg-3 col-md-6">
+                  <img src={img1} className="teamImage"/>
+                  <p className="mt-1 mb-0 teamName">Vishal</p>
+                  <p className="mb-0.5 teamFollow">Follow Us</p>
+                  <a className="teamIcon" href="#"><img src={fb}/></a>
+                  <a className="teamIcon" href="#"><img src={twitter}/></a>
+                  <a className="teamIcon" href="#"><img src={linkedin}/> </a>
+ 
               </div>
-            </div>
-            <div class="col-sm-3">
-              <img src={img2} class="image_7"/>
-              <p class="readable_text">Content</p>
-              <p class="readable_text_1">Follow Us</p>
-              <div class="social_icon">
-                <ul>
-                <li><a href="#"><img src={fb}/></a></li>
-                  <li><a href="#"><img src={twitter}/></a></li>
-                  <li><a href="#"><img src={linkedin}/></a></li>
-                </ul>
+              <div className="teamCard col-lg-3 col-md-6">
+              <img src={img1} className="teamImage"/>
+                  <p className="mt-1 mb-0  teamName">Vishal</p>
+                  <p className="teamFollow">Follow Us</p>
+                  <a className="teamIcon" href="#"><img src={fb}/></a>
+                  <a className="teamIcon" href="#"><img src={twitter}/></a>
+                  <a className="teamIcon" href="#"><img src={linkedin}/> </a>
               </div>
-            </div>
-            <div class="col-sm-3">
-              <img src={img3} class="image_7"/>
-              <p class="readable_text">Readable</p>
-              <p class="readable_text_1">Follow Us</p>
-              <div class="social_icon">
-                <ul>
-                <li><a href="#"><img src={fb}/></a></li>
-                  <li><a href="#"><img src={twitter}/></a></li>
-                  <li><a href="#"><img src={linkedin}/></a></li>
-                </ul>
+              <div className="teamCard col-lg-3 col-md-6">
+              <img src={img1} className="teamImage"/>
+                  <p className=" mt-1 mb-0 teamName">Vishal</p>
+                  <p className="teamFollow">Follow Us</p>
+                  <a className="teamIcon" href="#"><img src={fb}/></a>
+                  <a className="teamIcon" href="#"><img src={twitter}/></a>
+                  <a className="teamIcon" href="#"><img src={linkedin}/> </a>
               </div>
-            </div>
-            <div class="col-sm-3">
-              <img src={img4} class="image_7"/>
-              <p class="readable_text">Content</p>
-              <p class="readable_text_1">Follow Us</p>
-              <div class="social_icon">
-                <ul>
-                <li><a href="#"><img src={fb}/></a></li>
-                  <li><a href="#"><img src={twitter}/></a></li>
-                  <li><a href="#"><img src={linkedin}/></a></li>
-                </ul>
+              <div className="teamCard col-lg-3 col-md-6">
+              <img src={img1} className="teamImage"/>
+                  <p className=" mt-1 mb-0 teamName">Vishal</p>
+                  <p className="teamFollow">Follow Us</p>
+                  <a className="teamIcon" href="#"><img src={fb}/></a>
+                  <a className="teamIcon" href="#"><img src={twitter}/></a>
+                  <a className="teamIcon" href="#"><img src={linkedin}/> </a>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    </div>
+
+    
 
 
 
-    <div class="project_section_2 layout_padding">
+    {/* <div class="project_section_2 layout_padding">
       <div class="container">
         <div class="row">
           <div class="col-lg-3 col-sm-6">
@@ -198,7 +186,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
 
 
 </div>

@@ -4,10 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Switch, Routes } from "react-router-dom";
 
 import Home from './components/Home/Home.js';
-import UserSignUp from './components/UserSignUp/UserSignup';
 import Login from './components/Login/Login';
 import LoanCard from './components/LoanCard/LoanCard'
-import AddUser from './components/AddUser/AddUser'
 import AdminDashBoard from './components/AdminDashBoard/AdminDashBoard';
 import UserDashBoard from './components/UserDashboard/UserDashboard';
 import ViewLoanApplication from './components/ViewLoanApplication/ViewLoanApplication';
@@ -28,24 +26,6 @@ import EditEmployee from './components/EditEmployee/EditEmployee';
 
 
 
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <RootLayout />,
-//     children: [
-//       { path: "/", element: <Home /> },
-//       { path: "/LoanCard", element: <LoanCard /> },
-//       { path: "/Login", element: <Login /> },
-//       { path: "/AddUser", element: <AddUser /> },
-//       { path: "/UserSignUp", element: <UserSignUp /> },
-//       { path: "/EmployeeList", element: <EmployeeList /> },
-//       { path: "/ViewLoanApplication", element: <ViewLoanApplication /> },
-//       { path: "/ViewMyApplications", element: <ViewMyApplications /> }
-
-//     ],
-//   },
-// ]);
-
 function App() {
  
   const [isLoggedIn,setIsLoggedIn] = useState(localStorage.getItem("token") != null)
@@ -59,8 +39,7 @@ function App() {
    
         <Route path="/" element={<Home/>} />
           <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
-          <Route path="/adduser" element={role=="Admin" && isLoggedIn ? <AddUser/> : <Home/>} />
-          <Route path="/usersignup" element={isLoggedIn ? <UserSignUp/> : <Home/>} />
+          <Route path="/adduser" element={role=="Admin" && isLoggedIn ? <AddEmployee/> : <Home/>} />
           <Route path="/ViewEmployeeData" element={role=="Admin" && isLoggedIn ? <ViewEmployeeData/> : <Home/>} />
           <Route path="/viewloanapplication" element={role=="Admin" && isLoggedIn ? <ViewLoanApplication/>: <Home/>} />
           <Route path="/viewmyapplications" element={role== "User" && isLoggedIn ? <ViewMyApplications/>: <Home/>} />
@@ -68,6 +47,7 @@ function App() {
           <Route path="/userdashboard" element={role=="User" && isLoggedIn ? <UserDashBoard/>: <Home/>} />
           <Route path="/admindashboard" element={role=="Admin" && isLoggedIn ? <AdminDashBoard/>: <Home/>} />
           <Route path="/error" element={isLoggedIn ? <Error/>: <Home/>} />
+          <Route path="/forgotpassword" element={<ForgotPassword/>}/>
           <Route path="/editcarddetails" element={role=="Admin" && isLoggedIn ? <EditCardDetails/>: <Home/>}/>
           <Route path="/addemployee" element={role=="Admin" && isLoggedIn ? <AddEmployee/>: <Home/>}/>
           <Route path="/editemployee" element={role=="Admin" &&isLoggedIn ? <EditEmployee/>: <Home/>}/> 

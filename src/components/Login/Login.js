@@ -28,6 +28,13 @@ const Login = ({isLoggedIn,setIsLoggedIn}) =>
 
 
 
+      const handleForgotPassword = async (e) =>
+      {
+        e.preventDefault();
+        navigate("/forgotpassword");
+      }
+
+
       const handleloginData= async (e) => {
         e.preventDefault()
         const loginCred = {
@@ -88,10 +95,10 @@ const Login = ({isLoggedIn,setIsLoggedIn}) =>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div className='mt-5 pt-5'>
                         <h3 className='text-dark  mt-4 mb-5  pb-2'>Login</h3>
-                        <input onChange={onemployeeidChange} type="number" placeholder="Employee Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                        <input onChange={onpasswordChange} type="password" placeholder="Password"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                        <input required onChange={onemployeeidChange} type="number" placeholder="Employee Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                        <input required onChange={onpasswordChange} type="password" placeholder="Password"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
                         <button type="submit" class=" mt-3 pt-2 pb-2 btn btn-success forgotpassword-button">Login</button>
-                        <button type="button" class=" mt-3 pt-2 pb-2 btn btn-outline-primary forgotpassword-button">Sign Up</button>
+                        <button type="button" onClick={handleForgotPassword} class=" mt-3 pt-2 pb-2 btn btn-outline-primary forgotpassword-button">Forgot Password</button>
                     </div>
                 </div>
             </div>

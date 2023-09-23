@@ -122,85 +122,49 @@ h2
 
 
 
-.layout_padding {
-    padding: 3% 4%;
-}
 
-.what_taital
+
+.team-container-fluid
 {
-    font-family: Poppins;
-    font-weight: 600;
+  padding: 2% 10%;
 }
 
-.team_section{
-    width: 100%;
-    float: left;
-}
-.what_text_1 {
-    width: 50%;
-    margin: 0 auto;
-    font-size: 16px;
-    color: #060606;
-    font-family: Poppins;
-    text-align: center;
-}
-.team_section_2{
-    width: 100%;
-    float: left;
-}
-.image_7{
-    width: 100%;
-    float: left;
-    text-align: center;
-}
-.readable_text{
-    width: 100%;
-    float: left;
-    font-size: 18px;
-    text-align: center;
-    color: #060606;
-    margin-left: 0px;
-    font-weight: 450;
-}
-.readable_text_1{
-    width: 100%;
-    float: left;
-    font-size: 18px;
-    text-align: center;
-    color: #ff5a58;
-    margin: 0px;
-    font-weight: 450;
-}
-.social_icon{
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-}
-.social_icon ul{
-    margin: 0px;
-    padding: 0px;
-    display: inline-block;
-}
-.social_icon li{
-    float: left;
-    padding: 20px 3px 0px 3px;
-    list-style: none;
+.teamTag
+{
+  width: 50%;
+  margin: auto;
+  color: #8f8f8f;
 
 
 }
 
-.project_section_2 {
-    width: 100%;
-    float: left;
-    background-color: #ff5a58;
-    height: auto;
-    color: #fff;
+.teamName
+{
+  font-size: 1.5;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
 }
 
-.icon_1 {
-    width: 100%;
-    float: left;
-    text-align: center;
-    min-height: 80px;
-    padding: 10%;
+.teamCard
+{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.teamImage
+{
+  width: 12rem;
+}
+
+.teamHeading
+{
+  color: #000;
+  font-size: 1.5;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+}
+
+.teamIcon
+{
+  margin: 1%;
 }
