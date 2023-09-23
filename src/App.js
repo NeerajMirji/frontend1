@@ -42,9 +42,9 @@ function App() {
           <Route path="/adduser" element={role=="Admin" && isLoggedIn ? <AddEmployee/> : <Home/>} />
           <Route path="/ViewEmployeeData" element={role=="Admin" && isLoggedIn ? <ViewEmployeeData/> : <Home/>} />
           <Route path="/viewloanapplication" element={role=="Admin" && isLoggedIn ? <ViewLoanApplication/>: <Home/>} />
-          <Route path="/viewmyapplications" element={role== "User" && isLoggedIn ? <ViewMyApplications/>: <Home/>} />
-          <Route path="/loanapplications" element={role=="User" && isLoggedIn ? <LoanApplication/>: <Home/>} />
-          <Route path="/userdashboard" element={role=="User" && isLoggedIn ? <UserDashBoard/>: <Home/>} />
+          <Route path="/viewmyapplications" element={ isLoggedIn ? <ViewMyApplications/>: <Home/>} />
+          <Route path="/loanapplications" element={ isLoggedIn ? <LoanApplication/>: <Home/>} />
+          <Route path="/userdashboard" element={ isLoggedIn ? <UserDashBoard/>: <Home/>} />
           <Route path="/admindashboard" element={role=="Admin" && isLoggedIn ? <AdminDashBoard/>: <Home/>} />
           <Route path="/error" element={isLoggedIn ? <Error/>: <Home/>} />
           <Route path="/forgotpassword" element={<ForgotPassword/>}/>
