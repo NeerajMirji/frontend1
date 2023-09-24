@@ -20,6 +20,7 @@ import icon3 from './icon3.png'
 import icon4 from './icon4.png'
 
 
+
 const Home = () => {
     const navigate = useNavigate();
     const gotoAdminLogin = () => {
