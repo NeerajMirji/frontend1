@@ -61,7 +61,7 @@ const UserDashboard = () =>
                             <img src={loancard} className="card-img-top pt-5 pb-5" alt="..."/>
                             <div className="card-body">
                                 <h5 className="card-title">Loan Card Details</h5>
-                                <Link type="button" className="btn btn-outline-danger ml-3 mt-2">View</Link>
+                                <Link type="button" to='/viewcarddetailsforuser' className="btn btn-outline-danger ml-3 mt-2">View</Link>
                             </div>
                     </div>
                 </div>

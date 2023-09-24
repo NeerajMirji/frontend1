@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllCardDetails, deleteCardData} from "../api";
+import { getLoanApplications} from "../api";
 import { useNavigate } from "react-router-dom";
 
 
@@ -13,14 +13,14 @@ const ViewCardDetailsForAdmin = () => {
 
 
   const handleDelete = async (id) => {
-    await deleteCardData(id);
-    console.log("delete function called");
+    // await deleteCardData(id);
+    // console.log("delete function called");
   }
 
   const handleUpdate = async (cardData) => {
     // await updateEmployeeData(id);
 
-    navigate('/editcarddata',{state:{cardData}});
+    navigate('/editcarddetails',{state:{cardData}});
     console.log(cardData);
   }
 
@@ -30,7 +30,7 @@ const ViewCardDetailsForAdmin = () => {
 
     useEffect(() => {
       return async () => {
-        const response = await getAllCardDetails();
+        const response = await getLoanApplications();
         setcardDetails(response);
         // console.log(response);
 
@@ -58,7 +58,7 @@ const ViewCardDetailsForAdmin = () => {
                   {cardDetails?.map((cardDetail) => (
                     <tr key={cardDetail.issueId}>
                       <td className="pt-3" >{cardDetail.loanId}</td>
-                      <td className="pt-3" >{cardDetail.loanType}</td>
+                      <td className="pt-3" >{cardDetail.itemCategory}</td>
                       <td className="pt-3" >{cardDetail.loanDuration}</td>
                       <td className="pt-3" >{cardDetail.issueDate}</td>
                       <td className="pt-3" >

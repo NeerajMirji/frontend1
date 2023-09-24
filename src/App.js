@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Switch, Routes } from "react-router-dom
 
 import Home from './components/Home/Home.js';
 import Login from './components/Login/Login';
-import LoanCard from './components/LoanCard/LoanCard'
 import AdminDashBoard from './components/AdminDashBoard/AdminDashBoard';
 import UserDashBoard from './components/UserDashboard/UserDashboard';
 import ViewLoanApplication from './components/ViewLoanApplication/ViewLoanApplication';
@@ -20,16 +19,19 @@ import LoanApplication from './components/LoanApplication/LoanApplication';
 import EditCardDetails from './components/EditCardDetails/EditCardDetails';
 import AddEmployee from './components/AddEmployee/AddEmployee';
 import EditEmployee from './components/EditEmployee/EditEmployee';
-
-
-
-
+import AddItemData from "./components/AddItemData/AddItemData";
+import ViewItemData from './components/ViewItemData/ViewItemData'
+import LoanCard from "./components/LoanCard/LoanCard"
+import ViewCardDetailsForAdmin from './components/ViewCardDetailsForAdmin/ViewCardDetailsForAdmin'
+import ViewCardDetailsForUser from './components/ViewCardDetailsForUser/ViewCardDetailsForUser'
 
 
 function App() {
  
-  const [isLoggedIn,setIsLoggedIn] = useState(localStorage.getItem("token") != null)
-  const role = localStorage.getItem("Role");
+  const [isLoggedIn,setIsLoggedIn] = useState(localStorage.getItem("token") !== null)
+  const [role, setRole] = useState(localStorage.getItem("Role"));
+  
+
   return (
     <>
     <Router>
@@ -38,21 +40,25 @@ function App() {
         <Routes>
    
         <Route path="/" element={<Home/>} />
-          <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
+          <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} role={role} setRole={setRole}/>} />
           <Route path="/adduser" element={role=="Admin" && isLoggedIn ? <AddEmployee/> : <Home/>} />
           <Route path="/ViewEmployeeData" element={role=="Admin" && isLoggedIn ? <ViewEmployeeData/> : <Home/>} />
           <Route path="/viewloanapplication" element={role=="Admin" && isLoggedIn ? <ViewLoanApplication/>: <Home/>} />
-          <Route path="/viewmyapplications" element={role== "User" && isLoggedIn ? <ViewMyApplications/>: <Home/>} />
-          <Route path="/loanapplications" element={role=="User" && isLoggedIn ? <LoanApplication/>: <Home/>} />
-          <Route path="/userdashboard" element={role=="User" && isLoggedIn ? <UserDashBoard/>: <Home/>} />
-          <Route path="/admindashboard" element={role=="Admin" && isLoggedIn ? <AdminDashBoard/>: <Home/>} />
+          <Route path="/viewmyapplications" element={ isLoggedIn ? <ViewMyApplications/>: <Home/>} />
+          <Route path="/loanapplications" element={isLoggedIn ? <LoanApplication/>: <Home/>} />
+          <Route path="/userdashboard" element={ isLoggedIn ? <UserDashBoard/>: <Home/>} />
+          <Route path="/admindashboard" element={(role==="Admin" && isLoggedIn) ? <AdminDashBoard/>: <Home/>} />
           <Route path="/error" element={isLoggedIn ? <Error/>: <Home/>} />
           <Route path="/forgotpassword" element={<ForgotPassword/>}/>
           <Route path="/editcarddetails" element={role=="Admin" && isLoggedIn ? <EditCardDetails/>: <Home/>}/>
           <Route path="/addemployee" element={role=="Admin" && isLoggedIn ? <AddEmployee/>: <Home/>}/>
           <Route path="/editemployee" element={role=="Admin" &&isLoggedIn ? <EditEmployee/>: <Home/>}/> 
-    
-          
+          <Route path="/additemdata" element={role=="Admin" &&isLoggedIn ? <AddItemData/>: <Home/>}/> 
+          <Route path="/viewitemdata" element={role=="Admin" &&isLoggedIn ? <ViewItemData/>: <Home/>}/> 
+          <Route path="/addloancard" element={role=="Admin" &&isLoggedIn ? <LoanCard/>: <Home/>}/> 
+          <Route path="/viewcarddetailsforadmin" element={role=="Admin" &&isLoggedIn ? <ViewCardDetailsForAdmin/>: <Home/>}/>
+          <Route path="/editcarddetails" element={role=="Admin" &&isLoggedIn ? <EditCardDetails/>: <Home/>}/>
+          <Route path="/viewcarddetailsforuser" element={ isLoggedIn ? <ViewCardDetailsForUser/>: <Home/>} />
        </Routes>
        <ContactUs/>
       

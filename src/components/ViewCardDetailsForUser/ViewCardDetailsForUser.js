@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getUserCardDetails} from "../api";
+import { getLoanApplications} from "../api";
 import { useNavigate } from "react-router-dom";
 
 
@@ -17,7 +17,7 @@ const ViewCardDetailsForUser = () => {
 
     useEffect(() => {
       return async () => {
-        const response = await getUserCardDetails();
+        const response = await getLoanApplications();
         setcardDetails(response);
         // console.log(response);
 
@@ -31,7 +31,7 @@ const ViewCardDetailsForUser = () => {
 
     return (
       <div className="container">
-              <h3 className="text-primary mt-5">Employee List</h3>
+              <h3 className="text-primary mt-5">Cards Availed</h3>
               <table className="table table-striped table-bordered mt-5">
                 <thead>
                   <tr>

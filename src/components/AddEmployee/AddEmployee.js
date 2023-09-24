@@ -3,13 +3,13 @@ import './AddEmployee.css';
 import { addEmployee } from '../api';
 import { useNavigate } from 'react-router-dom';
 
-import login from './login.jpg'
+import AddEmployeeImg from './AddEmployeeImg.jpg'
 
 
 const AddEmployee = () =>
 {
 
-    // const[employee_id, setEmployeeid] = useState("");
+    const[employeeId, setEmployeeId] = useState(0);
     const [employeeName , setName] = useState("");
     const [email , setEmail] = useState("");
     const [mobile , setMobile] = useState("");
@@ -20,10 +20,10 @@ const AddEmployee = () =>
     const [employeePassword , setPassword] = useState("");
     const navigate = useNavigate();
 
-    // const onEmployeeIdChange = (e) =>
-    // {
-    //     setEmployeeid(e.target.value);
-    // }
+    const onEmployeeIdChange = (e) =>
+    {
+        setEmployeeId(e.target.value);
+    }
 
     const onEmployeeNameChange = (e) => {
         setName(e.target.value);
@@ -55,6 +55,7 @@ const AddEmployee = () =>
       const handleAddEmployee = async (e) => {
         e.preventDefault();
         const employee = {
+          employeeId,
           employeeName,
           employeePassword,
           gender,
@@ -75,13 +76,13 @@ const AddEmployee = () =>
       <div class="container text-center">
           <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-12">
-                  <img  className="forgotpasswordImg mt-3 mb-3" src={login} alt="forgot password"/>
+                  <img  className="forgotpasswordImg mt-3 mb-3" src={AddEmployeeImg} alt="forgot password"/>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-12">
                   <div className='mt-5 pt-5'>
                     <form method="post" onSubmit={handleAddEmployee}>
                       <h3 className='text-dark  mt-4 mb-5  pb-2'>Add Employee</h3>
-                      {/* <input onchange={onEmployeeIdChange} type="number" placeholder="Employee Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input> */}
+                      <input onChange={onEmployeeIdChange} type="number" placeholder="Employee Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
                       <input onChange={onEmployeeNameChange} type="text" placeholder="User Name"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
                       <input onChange={onEmployeeEmailChange} type="email" placeholder="Email"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
                       <input onChange={onEmployeeMobileChange} type="text" placeholder="Mobile no"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>

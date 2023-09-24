@@ -3,7 +3,7 @@ import './EditEmployee.css';
 import { updateEmployeeData } from '../api';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import login from './login.jpg'
+import EditEmployeeImg from './EditEmployeeImg.jpg'
 
 
 const EditEmployee = () =>
@@ -79,7 +79,7 @@ const EditEmployee = () =>
       <div class="container text-center">
           <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-12">
-                  <img  className="forgotpasswordImg mt-3 mb-3" src={login} alt="forgot password"/>
+                  <img  className="forgotpasswordImg mt-3 mb-3" src={EditEmployeeImg} alt="forgot password"/>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-12">
                   <div className='mt-5 pt-5'>

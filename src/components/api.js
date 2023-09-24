@@ -8,6 +8,18 @@ const addEmployee = async (employee) => {
   );
 };
 
+const deleteEmployeeData = async (id) => {
+  const response = await axios.delete(`http://localhost:8080/api/employees/remove/${id}`);
+  console.log("This is from get All", response.data);
+  return response.data;
+};
+
+const updateEmployeeData = async (employee) => {
+  const response = await axios.put(`http://localhost:8080/api/employees/update/${employee.employeeId}`,employee);
+  // console.log("This is from get All", response.data);
+  return response.data;
+};
+
 const loginData = async (loginCred) =>
 {
   const response = await axios.post(
@@ -52,17 +64,7 @@ const getMyApplications = async (id) => {
   return response.data;
 };
 
-const deleteEmployeeData = async (id) => {
-  const response = await axios.delete(`http://localhost:8080/api/employees/remove/${id}`);
-  console.log("This is from get All", response.data);
-  return response.data;
-};
 
-const updateEmployeeData = async (employee) => {
-  const response = await axios.put(`http://localhost:8080/api/employees/update/${employee.employeeId}`,employee);
-  // console.log("This is from get All", response.data);
-  return response.data;
-};
 
 const updateLoanApplicationData = async (Loanapplication) => {
   const response = await axios.put(`http://localhost:8080/api/loanitem/update/${Loanapplication.loanId}`,Loanapplication);
@@ -83,7 +85,7 @@ const addItem = async(item)=>
 {
  
   const response = await axios.post(
-    "http://localhost:8080/api/item/add",
+    "http://localhost:8080/api/itemdetails/add",
     item
   );
 }
@@ -91,7 +93,7 @@ const addItem = async(item)=>
 const updateItem = async(item)=>
 {
 
-  const response = await axios.put(`http://localhost:8080/api/item/update/${item.itemId}`,item);
+  const response = await axios.put(`http://localhost:8080/api/itemdetails/update/${item.itemId}`,item);
    console.log("This is from updateItem", response.data);
   return response.data;
 
@@ -99,14 +101,14 @@ const updateItem = async(item)=>
 
 const deleteItem = async(itemId)=>
 {
-  const response = await axios.delete(`http://localhost:8080/api/item/remove/${itemId}`);
+  const response = await axios.delete(`http://localhost:8080/api/itemdetails/remove/${itemId}`);
   console.log("This is from deleteItem", response.data);
   return response.data;
 }
 
 const getAllItems = async () =>
 {
-  const response = await axios.get("http://localhost:8080/api/item/getAll");
+  const response = await axios.get("http://localhost:8080/api/itemdetails/getAll");
   console.log("This is from getAllitems", response.data);
   return response.data;
 

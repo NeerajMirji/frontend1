@@ -2,39 +2,42 @@ import React from 'react'
 import './LoanCard.css' 
 
 import { useState } from "react";
-import { loanCardDetails } from '../api';
+import {  updateLoanApplicationData } from '../api';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 const LoanCard = () =>
 {
-
-    const [loanId , setloanId] = useState(null);
-    const [loanType , setloanType] = useState("");
-    const [duration , setduration] = useState(0);
+     
+    const location = useLocation();
+    const navigate = useNavigate();
+    const [loanId , setLoanId] = useState(location.state.Loanapplication.loanId);
+    const [loanCategory , setLoanCategory] = useState(location.state.Loanapplication.loanCategory);
+    const [loanDuration , setLoanDuration] = useState(0);
 
     
-    const onloanIdChange = (e) => {
-        setloanId(e.target.value);
+    const onLoanIdChange = (e) => {
+        setLoanId(e.target.value);
       };
 
-      const onloanTypeChange = (e) => {
-        setloanType(e.target.value);
+      const onLoanCategoryChange = (e) => {
+        setLoanCategory(e.target.value);
       };
 
-      const ondurationChange = (e) => {
-        setduration(e.target.value);
+      const onLoanDurationChange = (e) => {
+        setLoanDuration(e.target.value);
       };
 
 
       const handleloanCard = async (e) => {
         e.preventDefault();
-        const loanCard = {
-            loanId,
-            loanType,
-            duration
 
-        };
-
-        await loanCardDetails(loanCard);
+        location.state.Loanapplication.loanDuration = loanDuration;
+        location.state.Loanapplication.issueDate =new Date().toISOString().slice(0,10);
+        location.state.Loanapplication.loanStatus = "Approved";
+        await updateLoanApplicationData(location.state.Loanapplication);
+      
+        // console.log(Loanapplication);
+        navigate("/admindashboard");
       };
 
 
@@ -45,21 +48,21 @@ const LoanCard = () =>
         <h2>LoanCard Details</h2>
         <form method="post" onSubmit={handleloanCard}>
           <div class="txt_field">
-            <input type="number" required onChange={setloanId}/>
+            <input readOnly type="number" required value={location.state.Loanapplication.loanId} onChange={onLoanIdChange}/>
             <span></span>
             <label>Loan Id</label>
           </div>
           <div class="txt_field">
-            <input type="text" required onChange={setloanType}/>
+            <input readOnly type="text" required value={location.state.Loanapplication.itemCategory} onChange={onLoanCategoryChange}/>
             <span></span>
-            <label>Loan type</label>
+            <label>Loan Category</label>
           </div>
           <div class="txt_field">
-            <input type="number" required onChange={setduration}/>
+            <input type="number" required onChange={onLoanDurationChange}/>
             <span></span>
             <label>Duration in months</label>
           </div>
-          <input type="submit" value="submit"/>
+          <input type="submit" value="Create Card"/>
           <div class="signup_link">
            
           </div>

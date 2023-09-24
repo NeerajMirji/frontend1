@@ -51,6 +51,7 @@ const ViewItemData = () => {
                     <th>Item Description</th>
                     <th>Item Value</th>
                     <th>Item Status</th>
+                    <th>Action</th>
 
                   </tr>
                 </thead>

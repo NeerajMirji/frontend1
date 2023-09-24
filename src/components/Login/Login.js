@@ -6,7 +6,7 @@ import login from './login.jpg'
 import { useState } from "react";
 import { loginData, getLoginDataByUserName } from '../api';
 
-const Login = ({isLoggedIn,setIsLoggedIn}) =>
+const Login = ({isLoggedIn,setIsLoggedIn,role,setRole}) =>
 {
 
     const [employeeid , setEmployeeid] = useState(0);
@@ -55,6 +55,7 @@ const Login = ({isLoggedIn,setIsLoggedIn}) =>
           localStorage.setItem("userName",loginCred.username);
           localStorage.setItem("Role",loginResponse.roles);
           localStorage.setItem("token",response.data);
+          setRole(loginResponse.roles);
 
 
           

@@ -24,6 +24,7 @@ const ViewMyApplications = () => {
             <th>Application Date</th>
             <th>Item Category</th>
             <th>Item Description</th>
+            <th>Item Make</th>
             <th>Item Value</th>
             <th>Loan Duration</th>
             <th>Status</th>
@@ -36,9 +37,10 @@ const ViewMyApplications = () => {
               <td>{myApplication.applyDate}</td>
               <td>{myApplication.itemCategory}</td>
               <td>{myApplication.itemDescription}</td>
+              <td>{myApplication.itemMake}</td>
               <td>{myApplication.itemValue}</td>
-              <td>{myApplication.itemDuration}</td>
-              <td>{myApplication.itemStatus}</td>
+              <td>{myApplication.loanDuration}</td>
+              <td>{myApplication.loanStatus}</td>
             </tr>
           ))}
         </tbody>

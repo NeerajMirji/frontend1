@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { getLoanApplications, updateLoanApplicationData } from "../api";
+import { useNavigate } from "react-router-dom";
 
 const ViewLoanApplication = () => {
 
   const [Loanapplications, setLoanapplications,] = useState([]);
 
-  
+  const navigate = useNavigate();
   
 
 
@@ -14,10 +15,11 @@ const ViewLoanApplication = () => {
     
 
     // navigate('/editemployee',{state:{employee}});
-    Loanapplication.itemStatus = "Approved";
-    await updateLoanApplicationData(Loanapplication);
+    navigate("/addloancard" , {state:{Loanapplication}})
+    // Loanapplication.itemStatus = "Approved";
+    // await updateLoanApplicationData(Loanapplication);
    
-    console.log(Loanapplication);
+    // console.log(Loanapplication);
   }
 
   const handleReject = async (Loanapplication) => {
@@ -56,6 +58,7 @@ const ViewLoanApplication = () => {
             <th>Employee Id</th>
             <th>Item Category</th>
             <th>Item Description</th>
+            <th>Item Make</th>
             <th>Item Value</th>
             <th>Loan Duration</th>
             <th>Loan Type</th>
@@ -69,18 +72,19 @@ const ViewLoanApplication = () => {
               <td className="pt-3">{Loanapplication.employeeId}</td>
               <td className="pt-3">{Loanapplication.itemCategory}</td>
               <td className="pt-3">{Loanapplication.itemDescription}</td>
+              <td className="pt-3">{Loanapplication.itemMake}</td>
               <td className="pt-3">{Loanapplication.itemValue}</td>
-              <td className="pt-3">{Loanapplication.itemDuration}</td>
+              <td className="pt-3">{Loanapplication.loanDuration}</td>
               <td className="pt-3">{Loanapplication.loanType}</td>
               <td>
                 {
-                  Loanapplication.itemStatus === "Pending" ? (
+                  Loanapplication.loanStatus === "Pending" ? (
                     <>
                       <button onClick={() => handleApprove(Loanapplication)} type="button" className="btn btn-success mr-2">Approve</button>
                       <button onClick={() => handleReject(Loanapplication)} type="button" className="btn btn-danger ml-2">Reject</button></>
                   ) : (
                       <>
-                      <span>  {Loanapplication.itemStatus}</span>
+                      <span>  {Loanapplication.loanStatus}</span>
                    
                       </>
                   )
