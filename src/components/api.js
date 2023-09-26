@@ -143,4 +143,20 @@ const updateCardData = async (cardData) => {
   return response.data;
 };
 
-export {getAllItems, deleteItem, updateItem, addItem, updateCardData, deleteCardData, getAllCardDetails, getUserCardDetails, getLoginDataByUserName, updateLoanApplicationData, updateEmployeeData, deleteEmployeeData, addEmployee, getEmployeeList, loginData, loanCardDetails, loanApplicationDetails, getLoanApplications,  getMyApplications};
+const updatePassword = async (updatedUser) => {
+  const response = await axios.put(`http://localhost:8080/api/logindata/forgotpassword/${updatedUser.username}`,updatedUser);
+  // console.log("This is from get All", response.data);
+  return response.data;
+};
+
+const addNewUser = async(user)=>
+{
+ 
+  const response = await axios.post(
+    "http://localhost:8080/auth/addNewUser",
+    user
+  );
+  return response.data;
+}
+
+export {updatePassword,addNewUser, getAllItems, deleteItem, updateItem, addItem, updateCardData, deleteCardData, getAllCardDetails, getUserCardDetails, getLoginDataByUserName, updateLoanApplicationData, updateEmployeeData, deleteEmployeeData, addEmployee, getEmployeeList, loginData, loanCardDetails, loanApplicationDetails, getLoanApplications,  getMyApplications};

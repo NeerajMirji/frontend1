@@ -24,6 +24,7 @@ import ViewItemData from './components/ViewItemData/ViewItemData'
 import LoanCard from "./components/LoanCard/LoanCard"
 import ViewCardDetailsForAdmin from './components/ViewCardDetailsForAdmin/ViewCardDetailsForAdmin'
 import ViewCardDetailsForUser from './components/ViewCardDetailsForUser/ViewCardDetailsForUser'
+import EditItemData from './components/EditItemData/EditItemData';
 
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
           <Route path="/additemdata" element={role=="Admin" &&isLoggedIn ? <AddItemData/>: <Home/>}/> 
           <Route path="/viewitemdata" element={role=="Admin" &&isLoggedIn ? <ViewItemData/>: <Home/>}/> 
           <Route path="/addloancard" element={role=="Admin" &&isLoggedIn ? <LoanCard/>: <Home/>}/> 
+          <Route path="/edititemdetails" element={role=="Admin" &&isLoggedIn ? <EditItemData/>: <Home/>}/> 
           <Route path="/viewcarddetailsforadmin" element={role=="Admin" &&isLoggedIn ? <ViewCardDetailsForAdmin/>: <Home/>}/>
           <Route path="/editcarddetails" element={role=="Admin" &&isLoggedIn ? <EditCardDetails/>: <Home/>}/>
           <Route path="/viewcarddetailsforuser" element={ isLoggedIn ? <ViewCardDetailsForUser/>: <Home/>} />

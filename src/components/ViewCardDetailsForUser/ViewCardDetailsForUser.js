@@ -44,10 +44,15 @@ const ViewCardDetailsForUser = () => {
                 <tbody>
                   {cardDetails?.map((cardDetail) => (
                     <tr key={cardDetail.issueId}>
+                      {cardDetail.loanStatus=='Approved' ?
+                      (<>
                       <td className="pt-3" >{cardDetail.loanId}</td>
-                      <td className="pt-3" >{cardDetail.loanType}</td>
+                      <td className="pt-3" >{cardDetail.itemCategory}</td>
                       <td className="pt-3" >{cardDetail.loanDuration}</td>
                       <td className="pt-3" >{cardDetail.issueDate}</td>
+                      </>) :
+                      <></> }
+
                     </tr>
                   ))}
                 </tbody>

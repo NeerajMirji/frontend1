@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const ViewLoanApplication = () => {
 
   const [Loanapplications, setLoanapplications,] = useState([]);
+  const [spanColor , setSpanColor] = useState("black");
 
   const navigate = useNavigate();
   
@@ -13,8 +14,9 @@ const ViewLoanApplication = () => {
   const handleApprove = async (Loanapplication) => {
     // await updateEmployeeData(id);
     
-
+   
     // navigate('/editemployee',{state:{employee}});
+    setSpanColor("green");
     navigate("/addloancard" , {state:{Loanapplication}})
     // Loanapplication.itemStatus = "Approved";
     // await updateLoanApplicationData(Loanapplication);
@@ -26,19 +28,15 @@ const ViewLoanApplication = () => {
     // await updateEmployeeData(id);
 
     // navigate('/editemployee',{state:{employee}});
-    Loanapplication.itemStatus = "Rejected";
+    Loanapplication.loanStatus = "Rejected";
+    setSpanColor("red");
     await updateLoanApplicationData(Loanapplication);
     
     console.log(Loanapplication);
   }
 
 
-  // const handleClick = async(e) =>{
 
-  //   console.log(e);
-
-
-  // }
 
   useEffect(() => {
     return async () => {
@@ -46,7 +44,7 @@ const ViewLoanApplication = () => {
       setLoanapplications(response);
       console.log("This is from useEffect", response);
     };
-  }, [handleApprove,handleReject]);
+  }, [handleApprove,handleReject,spanColor]);
 
   return (
     <div className="container">
@@ -84,7 +82,7 @@ const ViewLoanApplication = () => {
                       <button onClick={() => handleReject(Loanapplication)} type="button" className="btn btn-danger ml-2">Reject</button></>
                   ) : (
                       <>
-                      <span>  {Loanapplication.loanStatus}</span>
+                      <span className="pt-4" style={{color:{spanColor}}}>  {Loanapplication.loanStatus}</span>
                    
                       </>
                   )

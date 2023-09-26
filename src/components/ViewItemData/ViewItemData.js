@@ -21,7 +21,7 @@ const ViewItemData = () => {
     const handleUpdate = async (item) => {
       // await updateEmployeeData(id);
 
-      navigate('/edititem',{state:{item}});
+      navigate('/edititemdetails',{state:{item}});
       console.log(item);
     }
 

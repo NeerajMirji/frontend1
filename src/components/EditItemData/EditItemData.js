@@ -10,6 +10,7 @@ const EditItemData = () =>
 {
 
     const location = useLocation();
+    const [itemId , setItemId] = useState(location.state.item.itemId);
     const [itemCategory , setItemCategory] = useState(location.state.item.itemCategory);
     const [itemMake , setItemMake] = useState(location.state.item.itemMake);
     const [itemValue , setItemValue] = useState(location.state.item.itemValue);
@@ -19,6 +20,9 @@ const EditItemData = () =>
     const navigate = useNavigate();
 
 
+    const onItemIdChange = (e) => {
+      setItemId(e.target.value);
+      };
 
     const onItemCategoryChange = (e) => {
       setItemCategory(e.target.value);
@@ -40,6 +44,7 @@ const EditItemData = () =>
       const handleUpdateItem = async (e) => {
         e.preventDefault();
         const item = {
+          itemId,
           itemCategory,
           itemMake,
           itemDescription,
@@ -62,8 +67,9 @@ const EditItemData = () =>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-12">
                   <div className='mt-5 pt-5'>
-                    <form method="post" onSubmit={handleAddItem}>
-                      <h3 className='text-dark  mt-4 mb-5  pb-2'>Add Items</h3>
+                    <form method="post" onSubmit={handleUpdateItem}>
+                      <h3 className='text-dark  mt-4 mb-5  pb-2'>Edit Item Data</h3>
+                      <input value={itemId} onChange={onItemIdChange} type="text" placeholder="Item Category"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
                       <input value={itemCategory} onChange={onItemCategoryChange} type="text" placeholder="Item Category"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
                       <input value={itemMake} onChange={onItemMakeChange} type="text" placeholder="Item Make"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
                       <input value={itemDescription} onChange={onItemDescriptionChange} type="text" placeholder="Item Description"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>

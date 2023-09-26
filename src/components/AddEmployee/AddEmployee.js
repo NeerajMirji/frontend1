@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './AddEmployee.css';
-import { addEmployee } from '../api';
+import { addEmployee, addNewUser } from '../api';
 import { useNavigate } from 'react-router-dom';
 
 import AddEmployeeImg from './AddEmployeeImg.jpg'
@@ -51,6 +51,22 @@ const AddEmployee = () =>
       const onEmployeePasswordChange = (e) => {
         setPassword(e.target.value);
       };
+      const handleAddNewUser = async() => {
+       
+        const user = {
+          username:employeeId,
+          email:email,
+          password:employeePassword,
+          roles:"User"
+
+        }
+        console.log("add new user triggerd");
+        console.log(user);
+        alert("New")
+        await addNewUser(user);
+        // navigate("/admindashboard");
+      }
+
 
       const handleAddEmployee = async (e) => {
         e.preventDefault();
@@ -65,8 +81,11 @@ const AddEmployee = () =>
           doj,
           mobile,
         };
+       
+        alert("employee");
 
         await addEmployee(employee);
+        handleAddNewUser();
         navigate("/admindashboard");
 
       };
