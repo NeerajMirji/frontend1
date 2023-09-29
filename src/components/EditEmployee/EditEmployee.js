@@ -57,20 +57,49 @@ const EditEmployee = () =>
 
       const handleUpdateEmployee = async (e) => {
         e.preventDefault();
-        const employee = {
-          employeeId,
-          employeeName,
-          employeePassword,
-          gender,
-          age,
-          salary,
-          email,
-          doj,
-          mobile,
-        };
 
-        await updateEmployeeData(employee);
-        navigate("/admindashboard");
+        let mobRegex = /[9876][0-9]{9}/;
+        let genderRegex = /Male|male|female|Female|Other|other/;
+        let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@#$!%*?&])[A-Za-z\d@$!%#*?&]{8,}$/;
+
+
+        if(!mobRegex.test(mobile))
+        {
+          setMobile("");
+          alert("enter a valid mobile number");
+          
+        }
+        else if(!genderRegex.test(gender))
+        {
+          setGender("");
+          alert("entre a valid gender");
+        }
+        else if(!passwordRegex.test(employeePassword))
+        {
+          setPassword("");
+          alert("Password must contain  at least 1 capital letter, at least one special character, atleast one number , more thn 8 characters");
+        }
+        else 
+        {
+              const employee = {
+                employeeId,
+                employeeName,
+                employeePassword,
+                gender,
+                age,
+                salary,
+                email,
+                doj,
+                mobile,
+              };
+      
+              await updateEmployeeData(employee);
+              navigate("/admindashboard");
+
+        }
+
+
+        
 
       };
 
@@ -83,7 +112,7 @@ const EditEmployee = () =>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-12">
                   <div className='mt-5 pt-5'>
-                    <form method="post" onSubmit={handleUpdateEmployee}>
+                    <form method="post">
                       <h3 className='text-dark  mt-4 mb-5  pb-2'>Update Employee Data</h3>
                       <input onChange={onEmployeeIdChange} value={employeeId} type="number" placeholder="Employee Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" />
                       <input onChange={onEmployeeNameChange} value={employeeName} type="text" placeholder="User Name"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
@@ -94,7 +123,26 @@ const EditEmployee = () =>
                       <input onChange={onEmployeeSalaryChange} value={salary} type="number" placeholder="Salary"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
                       <input onChange={onEmployeeGenderChange} value={gender} type="gender" placeholder="Gender"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
                       <input onChange={onEmployeePasswordChange} value={employeePassword} type="password" placeholder="Password"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                      <input type="submit" value ="Update" class=" mt-3 pt-2 pb-2 btn btn-success forgotpassword-button"></input>
+                      <input type="button" data-toggle="modal" data-target="#updateModal" value ="Update" class=" mt-3 pt-2 pb-2 btn btn-success forgotpassword-button"></input>
+                      <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Update Confirmation </h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      Are you sure you want update to details of {employeeName}
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <button type="button" onClick={handleUpdateEmployee} data-dismiss="modal" class="btn btn-primary">Update</button>
+                                    </div>
+                                  </div>
+                                </div>
+                        </div>
                       </form>
                   </div>
               </div>

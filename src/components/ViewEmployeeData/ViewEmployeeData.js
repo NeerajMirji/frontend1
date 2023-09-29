@@ -69,7 +69,27 @@ const ViewEmployeeData = () => {
                       <td className="pt-3" >{employee.mobile}</td>
                       <td className="pt-3" >
                         <button onClick={() => handleUpdate(employee)} type="button" className="btn btn-warning mr-2">Update</button>
-                        <button onClick={() => handleDelete(employee.employeeId)} type="button" className="btn btn-danger ml-2">Delete</button>
+                        <button  data-toggle="modal" data-target="#deleteModal" type="button" className="btn btn-danger ml-2">Delete</button>
+                        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation </h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      Are you sure you want to delete Employee  {employee.employeeName}
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <button onClick={() => handleDelete(employee.employeeId)} data-dismiss="modal" type="button" class="btn btn-primary">Delete</button>
+                                    </div>
+                                  </div>
+                                </div>
+                        </div>
+                      
                       </td>
                     </tr>
                   ))}

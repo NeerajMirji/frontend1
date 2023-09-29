@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getLoanApplications} from "../api";
+import { getMyApplications} from "../api";
 import { useNavigate } from "react-router-dom";
 
 
@@ -10,6 +10,7 @@ const ViewCardDetailsForUser = () => {
   const navigate = useNavigate();
 
   const [cardDetails,setcardDetails] = useState([]);
+  const [employeeId , setEmployeeId] = useState(localStorage.getItem("userName"));
 
 
 
@@ -17,7 +18,7 @@ const ViewCardDetailsForUser = () => {
 
     useEffect(() => {
       return async () => {
-        const response = await getLoanApplications();
+        const response = await getMyApplications(employeeId);
         setcardDetails(response);
         // console.log(response);
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './UserDashboard.css';
 
 import applyforloan from './applyforloan.jpg'
@@ -9,10 +9,11 @@ import { useNavigate, Link } from "react-router-dom";
 
 const UserDashboard = () =>
 {
-
+    const navigate = useNavigate();
+   
     
     const username = localStorage.getItem("username");
-    const navigate = useNavigate();
+   
     const handleApplyForLoan = () => {
         navigate("/loanapplications")
     }
@@ -25,6 +26,11 @@ const UserDashboard = () =>
         navigate("/viewmyapplications")
     }
 
+    useEffect(()=>{
+        if(localStorage.getItem("Role") == "Admin"){
+            navigate("/error");
+        }
+    })
     return (
 
         <div className="UserDashboard-container-fluid">

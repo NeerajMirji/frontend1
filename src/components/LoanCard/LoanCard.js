@@ -32,13 +32,17 @@ const LoanCard = () =>
       const handleloanCard = async (e) => {
         e.preventDefault();
 
-        location.state.Loanapplication.loanDuration = loanDuration;
-        location.state.Loanapplication.issueDate =new Date().toISOString().slice(0,10);
-        location.state.Loanapplication.loanStatus = "Approved";
-        await updateLoanApplicationData(location.state.Loanapplication);
-      
-        // console.log(Loanapplication);
-        navigate("/admindashboard");
+        if(loanDuration < 1) alert("loan Duration must be greater than 0");
+        else{
+
+            location.state.Loanapplication.loanDuration = loanDuration;
+            location.state.Loanapplication.issueDate =new Date().toISOString().slice(0,10);
+            location.state.Loanapplication.loanStatus = "Approved";
+            await updateLoanApplicationData(location.state.Loanapplication);
+          
+            // console.log(Loanapplication);
+            navigate("/admindashboard");
+        }
       };
 
 

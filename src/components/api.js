@@ -116,33 +116,6 @@ const getAllItems = async () =>
 
 
 
-const getUserCardDetails = async (userName) =>
-{
-  const response = await axios.get(`http://localhost:8080/api/cardData/${userName}`);
-  console.log("This is from getLoginDataByUserName", response.data);
-  return response.data;
-}
-
-
-const getAllCardDetails = async () =>
-{
-  const response = await axios.get(`http://localhost:8080/api/cardData/getAll`);
-  console.log("This is from getLoginDataByUserName", response.data);
-  return response.data;
-}
-
-const deleteCardData = async (id) => {
-  const response = await axios.delete(`http://localhost:8080/api/cardData/remove/${id}`);
-  console.log("This is from get All", response.data);
-  return response.data;
-};
-
-const updateCardData = async (cardData) => {
-  const response = await axios.put(`http://localhost:8080/api/employees/update/${cardData.loanId}`,cardData);
-  // console.log("This is from get All", response.data);
-  return response.data;
-};
-
 const updatePassword = async (updatedUser) => {
   const response = await axios.put(`http://localhost:8080/api/logindata/forgotpassword/${updatedUser.username}`,updatedUser);
   // console.log("This is from get All", response.data);
@@ -159,4 +132,4 @@ const addNewUser = async(user)=>
   return response.data;
 }
 
-export {updatePassword,addNewUser, getAllItems, deleteItem, updateItem, addItem, updateCardData, deleteCardData, getAllCardDetails, getUserCardDetails, getLoginDataByUserName, updateLoanApplicationData, updateEmployeeData, deleteEmployeeData, addEmployee, getEmployeeList, loginData, loanCardDetails, loanApplicationDetails, getLoanApplications,  getMyApplications};
+export {updatePassword,addNewUser, getAllItems, deleteItem, updateItem, addItem,  getLoginDataByUserName, updateLoanApplicationData, updateEmployeeData, deleteEmployeeData, addEmployee, getEmployeeList, loginData, loanCardDetails, loanApplicationDetails, getLoanApplications,  getMyApplications};

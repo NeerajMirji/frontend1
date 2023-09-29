@@ -26,6 +26,9 @@ const Home = () => {
     const gotoAdminLogin = () => {
         navigate("/adminlogin")
     }
+
+    // window.location.pathname = '/';
+    console.log(window.location.pathname);
   return (
     
     

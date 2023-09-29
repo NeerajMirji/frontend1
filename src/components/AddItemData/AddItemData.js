@@ -52,6 +52,8 @@ const AddItemData = () =>
 
         };
 
+        console.log(item);
+
         await addItem(item);
         navigate("/admindashboard");
 
@@ -68,12 +70,32 @@ const AddItemData = () =>
                   <div className='mt-5 pt-5'>
                     <form method="post" onSubmit={handleAddItem}>
                       <h3 className='text-dark  mt-4 mb-5  pb-2'>Add Items</h3>
-                      <input onChange={onItemIdChange} type="number" placeholder="Item Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                      <input onChange={onItemCategoryChange} type="text" placeholder="Item Category"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                      <input onChange={onItemMakeChange} type="text" placeholder="Item Make"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                      <input onChange={onItemDescriptionChange} type="text" placeholder="Item Description"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                      <input onChange={onItemValueChange} type="number" placeholder="Item Value"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                      <input onChange={onItemStatusChange} type="text" placeholder="Item Status"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                      <input required onChange={onItemIdChange} type="number" placeholder="Item Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                      <select  required onChange={onItemCategoryChange} className="custom-select  mt-2 mb-1" id="inputGroupSelect01">
+                        <option defaultValue="Item Category">Item Category</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Crockery">Crockery</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Stationary">Stationary</option>
+                        </select>
+                      <select  required onChange={onItemMakeChange} className="custom-select  mt-2 mb-1" id="inputGroupSelect01">
+                        <option defaultValue="Item Make">Item Make</option>
+                        <option value="Wooden">Wooden</option>
+                        <option value="Glass">Glass</option>
+                        <option value="Plastic">Plastic</option>
+                        <option value="Steel">Steel</option>
+                        <option value="Marble">Marble</option>
+                      </select>
+                      {/* <input required onChange={onItemCategoryChange} type="text" placeholder="Item Category"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input> */}
+                      {/* <input required onChange={onItemMakeChange} type="text" placeholder="Item Make"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input> */}
+                      <input required onChange={onItemDescriptionChange} type="text" placeholder="Item Description"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                      <input required onChange={onItemValueChange} type="number" placeholder="Item Value"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                      <select  required onChange={onItemStatusChange} className="custom-select  mt-2 mb-1" id="inputGroupSelect01">
+                        <option defaultValue="Item Status">Item Status</option>
+                        <option value="Available">Available</option>
+                        <option value="Unavailable">Unavailable</option>
+                      </select>
+                      {/* <input required onChange={onItemStatusChange} type="text" placeholder="Item Status"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input> */}
                     
                       <input type="submit" value ="Add Item" class=" mt-3 pt-2 pb-2 btn btn-success forgotpassword-button"></input>
                       </form>

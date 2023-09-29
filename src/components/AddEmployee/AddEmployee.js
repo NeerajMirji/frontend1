@@ -70,23 +70,48 @@ const AddEmployee = () =>
 
       const handleAddEmployee = async (e) => {
         e.preventDefault();
-        const employee = {
-          employeeId,
-          employeeName,
-          employeePassword,
-          gender,
-          age,
-          salary,
-          email,
-          doj,
-          mobile,
-        };
-       
-        alert("employee");
+        
+        let mobRegex = /[9876][0-9]{9}/;
+        let genderRegex = /Male|male|female|Female|Other|other/;
+        let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@#$!%*?&])[A-Za-z\d@$!%#*?&]{8,}$/;
 
-        await addEmployee(employee);
-        handleAddNewUser();
-        navigate("/admindashboard");
+
+        if(!mobRegex.test(mobile))
+        {
+          setMobile("");
+          alert("enter a valid mobile number");
+          
+        }
+        else if(!genderRegex.test(gender))
+        {
+          setGender("");
+          alert("entre a valid gender");
+        }
+        else if(!passwordRegex.test(employeePassword))
+        {
+          setPassword("");
+          alert("Password must contain  at least 1 capital letter, at least one special character, atleast one number , more thn 8 characters");
+        }
+        else  
+           {
+                const employee = {
+                  employeeId,
+                  employeeName,
+                  employeePassword,
+                  gender,
+                  age,
+                  salary,
+                  email,
+                  doj,
+                  mobile,
+                };
+              
+                
+
+                await addEmployee(employee);
+                handleAddNewUser();
+                navigate("/admindashboard");
+           }
 
       };
 
@@ -101,15 +126,15 @@ const AddEmployee = () =>
                   <div className='mt-5 pt-5'>
                     <form method="post" onSubmit={handleAddEmployee}>
                       <h3 className='text-dark  mt-4 mb-5  pb-2'>Add Employee</h3>
-                      <input onChange={onEmployeeIdChange} type="number" placeholder="Employee Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                      <input onChange={onEmployeeNameChange} type="text" placeholder="User Name"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                      <input onChange={onEmployeeEmailChange} type="email" placeholder="Email"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                      <input onChange={onEmployeeMobileChange} type="text" placeholder="Mobile no"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                      <input onChange={onEmployeeAgeChange} type="number" placeholder="Age"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                      <input onChange={onEmployeeDojChange} type="date" placeholder="Doj"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                      <input onChange={onEmployeeSalaryChange} type="number" placeholder="Salary"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                      <input onChange={onEmployeeGenderChange} type="gender" placeholder="Gender"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
-                      <input onChange={onEmployeePasswordChange} type="password" placeholder="Password"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                      <input required onChange={onEmployeeIdChange} type="number" placeholder="Employee Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                      <input required onChange={onEmployeeNameChange} type="text" placeholder="User Name"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                      <input required onChange={onEmployeeEmailChange} type="email" placeholder="Email"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                      <input required onChange={onEmployeeMobileChange} type="text" placeholder="Mobile no"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                      <input required onChange={onEmployeeAgeChange} type="number" placeholder="Age"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                      <input required onChange={onEmployeeDojChange} type="date" placeholder="Doj"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                      <input required onChange={onEmployeeSalaryChange} type="number" placeholder="Salary"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                      <input required onChange={onEmployeeGenderChange} type="gender" placeholder="Gender"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
+                      <input required onChange={onEmployeePasswordChange} type="password" placeholder="Password"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
                       <input type="submit" value ="Add Employee" class=" mt-3 pt-2 pb-2 btn btn-success forgotpassword-button"></input>
                       </form>
                   </div>

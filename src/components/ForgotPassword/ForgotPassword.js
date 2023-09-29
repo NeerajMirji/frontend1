@@ -35,7 +35,15 @@ const ForgotPassword = () =>
       const handleResetPassword = async(e)=>
       {
         e.preventDefault();
-        if(newPassword !== confirmPassword) alert("password and confirm password doesn't match!");
+
+        let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@#$!%*?&])[A-Za-z\d@$!%#*?&]{8,}$/;
+        
+        if(!passwordRegex.test(newPassword))
+        {
+          setNewPassword("");
+          alert("Password must contain  at least 1 capital letter, at least one special character, atleast one number , more thn 8 characters");
+        }
+        else if(newPassword !== confirmPassword) alert("password and confirm password doesn't match!");
         else{
             const updatedUser = {
               username : employeeId,

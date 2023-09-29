@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const ViewLoanApplication = () => {
 
   const [Loanapplications, setLoanapplications,] = useState([]);
-  const [spanColor , setSpanColor] = useState("black");
+ 
 
   const navigate = useNavigate();
   
@@ -16,7 +16,7 @@ const ViewLoanApplication = () => {
     
    
     // navigate('/editemployee',{state:{employee}});
-    setSpanColor("green");
+    
     navigate("/addloancard" , {state:{Loanapplication}})
     // Loanapplication.itemStatus = "Approved";
     // await updateLoanApplicationData(Loanapplication);
@@ -29,7 +29,7 @@ const ViewLoanApplication = () => {
 
     // navigate('/editemployee',{state:{employee}});
     Loanapplication.loanStatus = "Rejected";
-    setSpanColor("red");
+   
     await updateLoanApplicationData(Loanapplication);
     
     console.log(Loanapplication);
@@ -44,7 +44,7 @@ const ViewLoanApplication = () => {
       setLoanapplications(response);
       console.log("This is from useEffect", response);
     };
-  }, [handleApprove,handleReject,spanColor]);
+  }, []);
 
   return (
     <div className="container">
@@ -52,15 +52,15 @@ const ViewLoanApplication = () => {
       <table className="table table-striped table-bordered mt-5">
         <thead>
           <tr>
-            <th>Loan Id</th>
-            <th>Employee Id</th>
-            <th>Item Category</th>
-            <th>Item Description</th>
-            <th>Item Make</th>
-            <th>Item Value</th>
-            <th>Loan Duration</th>
-            <th>Loan Type</th>
-            <th>Action</th>
+            <th className="pt-3 pb-3" >Loan Id</th>
+            <th className="pt-3 pb-3" >Employee Id</th>
+            <th className="pt-3 pb-3" >Item Category</th>
+            <th className="pt-3 pb-3" >Item Description</th>
+            <th className="pt-3 pb-3" >Item Make</th>
+            <th className="pt-3 pb-3" >Item Value</th>
+            <th className="pt-3 pb-3" >Loan Duration</th>
+            <th className="pt-3 pb-3" >Loan Type</th>
+            <th className="pt-3 pb-3" >Action</th>
           </tr>
         </thead>
         <tbody>
@@ -74,7 +74,7 @@ const ViewLoanApplication = () => {
               <td className="pt-3">{Loanapplication.itemValue}</td>
               <td className="pt-3">{Loanapplication.loanDuration}</td>
               <td className="pt-3">{Loanapplication.loanType}</td>
-              <td>
+              <td className="pt-3">
                 {
                   Loanapplication.loanStatus === "Pending" ? (
                     <>
@@ -82,7 +82,12 @@ const ViewLoanApplication = () => {
                       <button onClick={() => handleReject(Loanapplication)} type="button" className="btn btn-danger ml-2">Reject</button></>
                   ) : (
                       <>
-                      <span className="pt-4" style={{color:{spanColor}}}>  {Loanapplication.loanStatus}</span>
+                       {
+                         Loanapplication.loanStatus === "Approved" ?
+                          <span className=" text-success font-weight-bold">  Approved </span>
+                          :
+                          <span className="text-danger font-weight-bold"> Rejected </span>
+                       }
                    
                       </>
                   )
