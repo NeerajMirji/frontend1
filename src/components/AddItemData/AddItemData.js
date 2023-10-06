@@ -62,12 +62,12 @@ const AddItemData = () =>
     return (
         
       <div class="container text-center">
-          <div class="row">
+          <div class="row mb-5">
               <div class="col-lg-6 col-md-6 col-sm-12">
-                  <img  className="forgotpasswordImg mt-3 mb-3" src={AddItemDataImg} alt="forgot password"/>
+                  <img  className="forgotpasswordImg mt-5 mb-3" src={AddItemDataImg} alt="forgot password"/>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-12">
-                  <div className='mt-5 pt-5'>
+                  <div className='mt-5 pt-1'>
                     <form method="post" onSubmit={handleAddItem}>
                       <h3 className='text-dark  mt-4 mb-5  pb-2'>Add Items</h3>
                       <input required onChange={onItemIdChange} type="number" placeholder="Item Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>

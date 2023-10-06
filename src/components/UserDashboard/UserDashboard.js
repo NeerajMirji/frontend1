@@ -5,6 +5,7 @@ import applyforloan from './applyforloan.jpg'
 import itemspurchased from './itemspurchased.jpg'
 import showloans from './showloans.jpg';
 import loancard from './loancard.jpg'
+import profileImg from './profileImg.jpg'
 import { useNavigate, Link } from "react-router-dom";
 
 const UserDashboard = () =>
@@ -22,9 +23,7 @@ const UserDashboard = () =>
         navigate("/viewmyapplications")
     }
 
-    const handleMyProfile = () => {
-        navigate("/viewmyapplications")
-    }
+
 
     useEffect(()=>{
         if(localStorage.getItem("Role") == "Admin"){
@@ -54,9 +53,9 @@ const UserDashboard = () =>
                     </div>
                 <div className="col-md-6 col-lg-4 pt-3 pb-3">
                     <div className="card" style={{width : 18 + 'rem'}}>
-                            <img src={itemspurchased} className="card-img-top " alt="..."/>
+                            <img src={profileImg} className="card-img-top " alt="..."/>
                             <div className="card-body">
-                                 <button type="button" className="btn btn-outline-success" onClick={handleMyProfile}>My Profile</button>
+                                 <Link type="button" to='/myprofile' className="btn btn-outline-success" >My Profile</Link>
                             </div>
                     </div>
                 </div>
@@ -67,7 +66,7 @@ const UserDashboard = () =>
                             <img src={loancard} className="card-img-top pt-5 pb-5" alt="..."/>
                             <div className="card-body">
                                 <h5 className="card-title">Loan Card Details</h5>
-                                <Link type="button" to='/viewcarddetailsforuser' className="btn btn-outline-danger ml-3 mt-2">View</Link>
+                                <Link type="button" to='/viewcarddetailsforuser' className="btn btn-outline-success ml-3 mt-2">View</Link>
                             </div>
                     </div>
                 </div>

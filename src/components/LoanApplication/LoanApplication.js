@@ -138,15 +138,15 @@ const LoanApplication = () => {
 
     return (
 
-      <div class="container text-center">
+      <div class="container text-center mb-5">
       <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12">
-              <img  className="forgotpasswordImg mt-3 mb-3" src={LoanApplicationImg} alt="forgot password"/>
+              <img  className="forgotpasswordImg mt-5 pt-5 " src={LoanApplicationImg} alt="forgot password"/>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12">
               <div className='mt-5 pt-5'>
                 <form  onSubmit={handleLoanApplication}>
-                  <h3 className='text-dark  mt-4 mb-5  pb-2'>Apply For Loan</h3>
+                  <h3 className='text-dark   mb-5  pb-2'>Apply For Loan</h3>
                
                   {/* <input onchange={onEmployeeIdChange} type="number" placeholder="Employee Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input> */}
                   <input readOnly onChange={onEmployeeIdChange} value={employee_id} type="number" placeholder="Employee Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>

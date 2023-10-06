@@ -1,0 +1,28 @@
+.profileCard
+{
+    border: 2px solid rgb(85, 85, 85);
+    margin: 6em auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
+}
+
+.img
+{
+    background-color:  #e3beb9;
+    border-radius: 10px;
+    
+}
+
+.profileCard img{
+
+    width: 50%;
+    border-radius: 100%;
+}
+
+.profileCard ul{
+
+    border: 2px solid balck;
+
+}
+

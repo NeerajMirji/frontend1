@@ -3,7 +3,7 @@ import './App.css'
 import { useNavigate } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Switch, Routes } from "react-router-dom";
 
-import Home from './components/Home/Home.js';
+import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import AdminDashBoard from './components/AdminDashBoard/AdminDashBoard';
 import UserDashBoard from './components/UserDashboard/UserDashboard';
@@ -25,6 +25,8 @@ import LoanCard from "./components/LoanCard/LoanCard"
 import ViewCardDetailsForAdmin from './components/ViewCardDetailsForAdmin/ViewCardDetailsForAdmin'
 import ViewCardDetailsForUser from './components/ViewCardDetailsForUser/ViewCardDetailsForUser'
 import EditItemData from './components/EditItemData/EditItemData';
+import Profile from './components/Profile/Profile';
+import Team from './components/Home/Team';
 
 
 function App() {
@@ -40,12 +42,16 @@ function App() {
         <MainNavbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <Routes>
    
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} role={role} setRole={setRole}/>} />
+          <Route path="/team" element={ <Team/>} />
+          {/* <Route path="/about" element={<About/>} /> */}
+          <Route path="/contactus" element={ <ContactUs/>} />
           <Route path="/adduser" element={role=="Admin" && isLoggedIn ? <AddEmployee/> : <Home/>} />
           <Route path="/ViewEmployeeData" element={role=="Admin" && isLoggedIn ? <ViewEmployeeData/> : <Home/>} />
           <Route path="/viewloanapplication" element={role=="Admin" && isLoggedIn ? <ViewLoanApplication/>: <Home/>} />
           <Route path="/viewmyapplications" element={ isLoggedIn ? <ViewMyApplications/>: <Home/>} />
+          <Route path="/myprofile" element={ isLoggedIn ? <Profile/>: <Home/>} />
           <Route path="/loanapplications" element={isLoggedIn ? <LoanApplication/>: <Home/>} />
           <Route path="/userdashboard" element={ isLoggedIn ? <UserDashBoard/>: <Home/>} />
           <Route path="/admindashboard" element={(role==="Admin" && isLoggedIn) ? <AdminDashBoard/>: <Home/>} />

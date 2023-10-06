@@ -10,11 +10,18 @@ const ViewEmployeeData = () => {
   const navigate = useNavigate();
 
   const [employees,setEmployees] = useState([]);
+  const [curID , setCurID] = useState();
+  const [name , setName] = useState();
 
 
 
-    const handleDelete = async (id) => {
-      await deleteEmployeeData(id);
+  const handleCurID = async (employee) => {
+    setCurID(employee.employeeId);
+    setName(employee.employeeName);
+    
+  }
+    const handleDelete = async () => {
+      await deleteEmployeeData(curID);
       console.log("delete function called");
     }
 
@@ -69,7 +76,7 @@ const ViewEmployeeData = () => {
                       <td className="pt-3" >{employee.mobile}</td>
                       <td className="pt-3" >
                         <button onClick={() => handleUpdate(employee)} type="button" className="btn btn-warning mr-2">Update</button>
-                        <button  data-toggle="modal" data-target="#deleteModal" type="button" className="btn btn-danger ml-2">Delete</button>
+                        <button  onClick={() => handleCurID(employee)} data-toggle="modal" data-target="#deleteModal" type="button" className="btn btn-danger ml-2">Delete</button>
                         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                   <div class="modal-content">
@@ -80,11 +87,11 @@ const ViewEmployeeData = () => {
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                      Are you sure you want to delete Employee  {employee.employeeName}
+                                      Are you sure you want to delete Employee  {name}
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                      <button onClick={() => handleDelete(employee.employeeId)} data-dismiss="modal" type="button" class="btn btn-primary">Delete</button>
+                                      <button onClick={() => handleDelete()} data-dismiss="modal" type="button" class="btn btn-primary">Delete</button>
                                     </div>
                                   </div>
                                 </div>

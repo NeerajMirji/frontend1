@@ -62,7 +62,7 @@ const AddEmployee = () =>
         }
         console.log("add new user triggerd");
         console.log(user);
-        alert("New")
+        // alert("New")
         await addNewUser(user);
         // navigate("/admindashboard");
       }
@@ -71,12 +71,16 @@ const AddEmployee = () =>
       const handleAddEmployee = async (e) => {
         e.preventDefault();
         
-        let mobRegex = /[9876][0-9]{9}/;
+        let mobRegex = /^[9876]{1}[0-9]{9}$/;
         let genderRegex = /Male|male|female|Female|Other|other/;
         let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@#$!%*?&])[A-Za-z\d@$!%#*?&]{8,}$/;
 
-
-        if(!mobRegex.test(mobile))
+        if(age<18 || age>65)
+        {
+          setAge("");
+          alert("Age must be between 18 and 65");
+        }
+        else if(!mobRegex.test(mobile))
         {
           setMobile("");
           alert("enter a valid mobile number");
@@ -91,6 +95,9 @@ const AddEmployee = () =>
         {
           setPassword("");
           alert("Password must contain  at least 1 capital letter, at least one special character, atleast one number , more thn 8 characters");
+        }
+        else if (salary<10000){
+          alert("Salary should be greater than 10000");
         }
         else  
            {
@@ -117,13 +124,13 @@ const AddEmployee = () =>
 
     return (
         
-      <div class="container text-center">
-          <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12">
-                  <img  className="forgotpasswordImg mt-3 mb-3" src={AddEmployeeImg} alt="forgot password"/>
+      <div className="container text-center">
+          <div className="row mb-5">
+              <div className="col-lg-6 col-md-6 col-sm-12 mt-5">
+                  <img  className="forgotpasswordImg mt-5 mb-3" src={AddEmployeeImg} alt="forgot password"/>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-12">
-                  <div className='mt-5 pt-5'>
+                  <div className='mt-5 pt-1'>
                     <form method="post" onSubmit={handleAddEmployee}>
                       <h3 className='text-dark  mt-4 mb-5  pb-2'>Add Employee</h3>
                       <input required onChange={onEmployeeIdChange} type="number" placeholder="Employee Id"  aria-label="First name" className="mt-2 form-control forgotpassword-input" ></input>
